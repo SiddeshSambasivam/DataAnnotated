@@ -11,12 +11,6 @@ In addition, the platform also has a python package which could be used to conne
 </h2>
 
 ```bash
-# create a conda environment
-conda create --name env pyhton=3.7.9
-conda activate env
-
-pip install -r requirements.txt
-
 npm install 
 cd client
 npm start
