@@ -1,0 +1,81 @@
+:root {
+  font-size: 16px;
+  font-family: 'Rubik', sans-serif;
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+  --transition-speed: 600ms;
+}
+
+body {
+  color: black;
+  background-color: #282c34;
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  margin-left: 6rem;
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 600px) {  
+  .container {
+    margin: 0;
+  }
+} 
+
+.title{
+  font-size: 3rem;
+  color: #fff;
+}
+
+.sub-title{
+  font-size: 2rem;
+  color: #fff;
+  margin-top: 20vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #353535;
+  font-size: 1rem;
+  color: #fff;
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  height: 100%;
+  width: 100%;
+
+  border-radius: 4px;
+  transition: all 500ms;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card:hover {
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  transform: translateY(-3px) scale(1.1);
+}
+
+.basic-grid {
+  display: grid;
+  gap: 1rem;
+
+  /* 1 too skinny, too much code */
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
+
+  /* 2 cleaner code */
+  /* grid-template-columns: repeat(12, 1fr); */
+
+  /* 3  better sizing, but overflows */
+  /* grid-template-columns: repeat(12, minmax(240px, 1fr)); */
+
+  /* 4 final */
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
