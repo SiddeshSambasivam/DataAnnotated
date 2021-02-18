@@ -28,8 +28,14 @@ const Home = () => {
                 <h1 className="title">Welcome {userdata.user_name}!</h1>
                 <h2 className="sub-title" style={{marginTop: "0vh"}}>Dashboard</h2>
                 <section className="basic-grid">
-                    <div className="card" id="createTask" onClick={handleClick}>Create Task</div>
-                    {tasks}
+                    <a href="/createTask">
+                        <div className="card">Create Task</div>
+                        {/* --not sure, so I replaced with diff code for now, while I test out the create task pages
+                        <div className="card" id="createTask" onClick={handleClick}>Create Task</div>
+                        {tasks}
+                        */}
+                    </a>
+                    <div className="card">POS Tagging</div>
                 </section>
                 <h2 className="sub-title" >Tutorial</h2>
                 <section className="basic-grid">
