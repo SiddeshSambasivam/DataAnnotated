@@ -3,6 +3,7 @@
 import React from 'react';
 import "./style.css";
 import Navbar from '../../components/Navbar';
+import InfoForm from '../../components/InfoForm';
 
 const CreateTaskInfo = () => {
     return (
@@ -10,14 +11,11 @@ const CreateTaskInfo = () => {
             <Navbar />
             <div className="container">
                 <h1 className="title">Basic Info</h1>
+
                 <h2 className="sub-title" >Task Name</h2>
                 {/*Input field for task name */}
-                <form>
-                    <label>
-                        <input type="text" name="task-name" />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
+                <InfoForm />
+                
                 <h2 className="sub-title" >Task-Specific Inputs </h2>
                 {/*Input field for task inputs */}             
             </div>
