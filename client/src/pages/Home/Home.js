@@ -1,17 +1,35 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
+import JSON from 'json5';
+import {Redirect, Link} from 'react-router-dom';
 
 const Home = () => {
+
+    function handleClick(e){
+        if (e.target.id == 'createTask'){
+            // you can redirect to createTask Page
+            console.log(e.target.id);   
+            // set the task id in the session storage
+            const userdata = JSON.parse(sessionStorage.getItem('userdata'))
+            userdata.current_task = e.target.id
+            sessionStorage.setItem("userdata", JSON.stringify(userdata))
+            return <Redirect to="/profile" />
+        }
+    }
+
+    // Cache the data in the session storage 
+    const userdata = JSON.parse(sessionStorage.getItem('userdata'))
+    const tasks = userdata.annotation_data.map((task) => {return(<div className="card" key={task.task_id} id={task.task_id} onClick={handleClick}>{task.task_name}</div>)})
+
     return (
         <>
             <Navbar />
             <div className="container">
-                <h1 className="title">Welcome User!</h1>
+                <h1 className="title">Welcome {userdata.user_name}!</h1>
                 <h2 className="sub-title" style={{marginTop: "0vh"}}>Dashboard</h2>
                 <section className="basic-grid">
-                    <div className="card">Create Task</div>
-                    <div className="card">2</div>
-                    <div className="card">3</div>
+                    <div className="card" id="createTask" onClick={handleClick}>Create Task</div>
+                    {tasks}
                 </section>
                 <h2 className="sub-title" >Tutorial</h2>
                 <section className="basic-grid">
