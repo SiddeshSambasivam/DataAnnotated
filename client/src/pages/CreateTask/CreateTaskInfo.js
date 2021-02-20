@@ -3,7 +3,7 @@
 import React from 'react';
 import "./style.css";
 import Navbar from '../../components/Navbar';
-import InfoForm from '../../components/InfoForm';
+import CreateTaskForm from '../../components/CreateTaskForm';
 
 const CreateTaskInfo = () => {
     return (
@@ -14,7 +14,7 @@ const CreateTaskInfo = () => {
 
                 <h2 className="sub-title" >Task Name</h2>
                 {/*Input field for task name */}
-                <InfoForm />
+                <CreateTaskForm />
                 
                 <h2 className="sub-title" >Task-Specific Inputs </h2>
                 {/*Input field for task inputs */}             
