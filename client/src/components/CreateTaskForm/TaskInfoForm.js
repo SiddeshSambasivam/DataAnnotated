@@ -42,6 +42,7 @@ export const TaskInfoForm = ({ formData, setFormData, nextStep }) => {
                     error={touched.taskName && errors.taskName}
                     helperText={touched.taskName && errors.taskName}
                 />
+                <h2 className="sub-title" >Number of Labels</h2>
                 <Field
                     name='labelQuantity'
                     label='Number of Labels'
@@ -50,6 +51,7 @@ export const TaskInfoForm = ({ formData, setFormData, nextStep }) => {
                     error={touched.labelQuantity && errors.labelQuantity}
                     helperText={touched.labelQuantity && errors.labelQuantity}
                 />
+                <h2 className="sub-title" >Labels</h2>
                 <Field
                     name='labels'
                     label='Labels'

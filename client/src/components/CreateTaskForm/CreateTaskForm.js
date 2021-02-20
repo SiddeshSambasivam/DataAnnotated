@@ -5,6 +5,7 @@ import {Formik} from 'formik';
 
 
 import {TaskInfoForm} from './TaskInfoForm';
+import {TaskDataForm} from './TaskDataForm';
 
 const CreateTaskForm = () => {
   const [step, setStep] = useState(1);
@@ -12,6 +13,8 @@ const CreateTaskForm = () => {
     taskName: '',
     labelQuantity: 0,
     labels: '',
+    fileUpload: '',
+    dataFormat: ''
   });
   const nextStep = () => setStep(prev => prev + 1);
   const prevStep = () => setStep(prev => prev - 1);
@@ -24,7 +27,7 @@ const CreateTaskForm = () => {
           nextStep={nextStep}
         />
       );
-    /*  
+    
     case 2:
       return (
         <TaskDataForm
@@ -34,6 +37,7 @@ const CreateTaskForm = () => {
           prevStep={prevStep}
         />
       );
+    /*
     case 3:
       return (
         <TaskUserForm
