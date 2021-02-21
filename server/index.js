@@ -1,12 +1,23 @@
-console.log('May Node be with you')
-
-const express = require('express');
+const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
+dotenv.config();
+// connect to db
+mongoose.connect(
+process.env.DB_CONNECT,
+{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+},
+() => console.log("connected to db")
+);
+// import routes
+const authRoutes = require("./routes/auth");
+// middlewares
+app.use(express.json()); // for body parser
+// route middlewares
+app.use("/api/user", authRoutes);
 
-app.listen(10000, function(){
-    console.log("Listening on 10000")
-})
+app.listen(3000, () => console.log("server is running..."));
