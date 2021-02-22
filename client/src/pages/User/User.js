@@ -6,7 +6,8 @@ import JSON from 'json5';
 import "./style.css";
 
 const User = () => {
-    const userdata = JSON.parse(sessionStorage.getItem('userdata'))
+    const userdata = JSON.parse(localStorage.getItem('userdata'))
+    
     return (
         <>
             <Navbar />

@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+import {connect} from 'react-redux';
+
 import Home  from './pages/Home';
 import MarketPlace from './pages/MarketPlace';
 import User from './pages/User';
@@ -44,4 +46,18 @@ const Routes = () => {
   );
 }
 
-export default Routes;
+function mapStateToProps(state){
+  return {
+    currentUser: state.currentUser
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+    setUser: (userObj) => {
+      dispatch({type:"SET_USER", payload: userObj})
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Routes);
