@@ -1,3 +1,4 @@
+//export const navbar = "/";
 export const landingPath = "/";
 export const homePath = "/home";
 export const marketplacePath = "/marketplace";

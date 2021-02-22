@@ -5,10 +5,10 @@ import Home  from './pages/Home';
 import MarketPlace from './pages/MarketPlace';
 import User from './pages/User';
 import Task from './pages/Task';
-import Landing from './pages/Landing';
 import JSON from 'json5';
 
 import { homePath, marketplacePath, profilePath, taskPath, createTaskPath, landingPath } from './constants/path';
+import Landing from './pages/Landing/Landing';
 
 const user_data = {
   user_id:"user123",
@@ -34,7 +34,7 @@ const Routes = () => {
     <>
       <BrowserRouter>
         <Switch>
-          <Route exact path={landingPath} component={Landing} />
+          <Route path={landingPath} component={Landing} />
           <Route exact path={homePath} component={Home} />
           <Route path={marketplacePath} component={MarketPlace} />
           <Route path={profilePath} component={User} />

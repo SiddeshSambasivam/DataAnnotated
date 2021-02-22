@@ -1,0 +1,91 @@
+
+/* ==========================================================================
+   Hero Area
+   ========================================================================== */
+   .hero-area {
+    position: relative; }
+    .hero-area .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+      text-decoration: none;
+      /* background: #100a30; */
+      background-image: url(../../assets/bg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      /*background: linear-gradient(95deg, #5533ff 40%, #25ddf5 100%);*/
+      -webkit-transform: skewY(-12deg);
+      transform: skewY(-12deg);
+      -webkit-transform-origin: 0;
+      transform-origin: 0;
+      z-index: -12; }
+      /* .hero-area .overlay :nth-child(1) {
+        width: 33.33333%;
+        width: calc(100% / 2);
+        top: 0;
+        left: 16.66666%;
+        left: calc(calc(100% / 3) / 2);
+        right: auto;
+        background:  #e2e0e9;
+        background: linear-gradient(95deg, #100a30 40%, #25ddf5 100%);
+        height: 200px; }
+      .hero-area .overlay :nth-child(2) {
+        width: 33.33333%;
+        width: calc(100% /3);
+        bottom: 0;
+        background: #e2e0e9;
+        background: linear-gradient(95deg, #e2e0e9 40%, #25ddf5 100%);
+        position: absolute;
+        height: 155px;
+        left: 3%; } */
+    .hero-area .contents {
+      padding: 220px 0; }
+      .hero-area .contents h2 {
+        color: #fff;
+        font-size: 38px;
+        font-weight: 600;
+        line-height: 60px;
+        margin-bottom: 20px; }
+        
+      .hero-area .contents p {
+        color: #fff;
+        font-size: 18px;
+        line-height: 26px; }
+      .hero-area .contents .btn {
+        margin-top: 40px;
+        margin-right: 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 180px;
+        height: 50px;
+        padding: 15px 15px; }
+      .hero-area .contents .btn-border {
+        border: 1px solid #fff;
+        color: #3ecf8e; 
+        border-radius: 20px;
+        -webkit-box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        width: 180px;
+        height: 50px;
+        padding: 15px 15px;
+        background: #fff; }
+        .hero-area .contents .btn-border:hover {
+          background: rgb(2, 0, 8);
+          color: #e6dfe2; 
+          box-shadow: 0 3px 3px cornsilk;
+         
+        }
+
+          .hero-area .contents .btn-border-filled {
+            color: bisque;
+            border: 1px solid cadetblue;
+            box-shadow: azure;
+          }
+    .hero-area .intro-img {
+      padding: 180px 0 0px; }
+      .hero-area .intro-img img {
+        display: block;
+        height: auto;
+        max-width: 100%; }

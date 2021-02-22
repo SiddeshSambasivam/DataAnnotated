@@ -1,9 +1,22 @@
 import React from 'react';
-import "./style.css";
+//import "./style.css";
+import "./navbar.css";
+import "../../assets/LineIcons.css";
 
-const Navbar = () => {
+function Navbar() {
     return (
-        <nav className="navbar">
+        <nav class="nav-menu">
+            <ul>
+                <li class="active"><a href="#hero"><i class="lni lni-home"></i> <span>Home</span></a></li>
+                <li><a href="#dashboard"><i class="lni lni-dashboard"></i> <span>Dashboard</span></a></li>
+                <li><a href="#services"><i class="lni lni-database"></i> <span>Services</span></a></li>
+                <li><a href="#contact"><i class="lni lni-envelope"></i> <span>Contact Us</span></a></li>
+
+            </ul>
+
+        </nav>
+
+        /*<nav className="navbar">
             <ul class="navbar-nav">
                 <li class="logo">
                     <a href="/home" class="nav-link">
@@ -28,21 +41,21 @@ const Navbar = () => {
                                     d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
                                     class="fa-primary"
                                 ></path>
-                        </g>
-                    </svg>
+                            </g>
+                        </svg>
                     </a>
                 </li>
-
+    
                 <li className="nav-item">
                     <a href="/home" class="nav-link">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <g class="fa-group">
-                        <path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path>
-                    </g>
-                    </svg>
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <g class="fa-group">
+                                <path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path>
+                            </g>
+                        </svg>
                     </a>
                 </li>
-
+    
                 <li className="nav-item">
                     <a href="/task" class="nav-link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="project-diagram" class="svg-inline--fa fa-project-diagram fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
@@ -52,9 +65,9 @@ const Navbar = () => {
                         </svg>
                     </a>
                 </li>
-
-
-
+    
+    
+    
                 <li className="nav-item">
                     <a href="/marketplace" class="nav-link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-bag" class="svg-inline--fa fa-shopping-bag fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -64,7 +77,7 @@ const Navbar = () => {
                         </svg>
                     </a>
                 </li>
-
+    
                 <li className="nav-item">
                     <a href="/profile" class="nav-link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -74,7 +87,7 @@ const Navbar = () => {
                         </svg>
                     </a>
                 </li>
-
+    
                 <li className="nav-item">
                     <a href="#" class="nav-link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -84,7 +97,7 @@ const Navbar = () => {
                         </svg>
                     </a>
                 </li>
-                
+    
                 <li className="nav-item">
                     <a href="#" class="nav-link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sign-out-alt" class="svg-inline--fa fa-sign-out-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -95,8 +108,8 @@ const Navbar = () => {
                     </a>
                 </li>
             </ul>
-        </nav>
-    )
+    </nav>*/
+    );
 }
 
 export default Navbar;

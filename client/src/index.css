@@ -10,7 +10,9 @@
 
 body {
   color: black;
-  background-color: #282c34;
+  /* background-image: url(../src/assets/bg.jpg); */
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   padding: 0;
 }
