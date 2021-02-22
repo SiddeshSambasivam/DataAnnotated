@@ -1,4 +1,3 @@
-
 /* ==========================================================================
    Hero Area
    ========================================================================== */
@@ -11,8 +10,9 @@
       top: 0px;
       left: 0px;
       text-decoration: none;
+      background: rgb(0, 0, 20);
       /* background: #100a30; */
-      background-image: url(../../assets/bg.jpg);
+      /*background-image: url(../../assets/bg.jpg);*/
       background-repeat: no-repeat;
       background-size: cover;
       /*background: linear-gradient(95deg, #5533ff 40%, #25ddf5 100%);*/
@@ -41,20 +41,27 @@
         height: 155px;
         left: 3%; } */
     .hero-area .contents {
-      padding: 220px 0; }
+      padding: 220px 0; 
+      margin-left: 400px;
+      
+    }
       .hero-area .contents h2 {
         color: #fff;
         font-size: 38px;
         font-weight: 600;
         line-height: 60px;
-        margin-bottom: 20px; }
+        align-self: center;
+        margin-bottom: 20px;
+        margin-top: 0px;
+        margin-left: 50px;
+       }
         
       .hero-area .contents p {
         color: #fff;
         font-size: 18px;
         line-height: 26px; }
       .hero-area .contents .btn {
-        margin-top: 40px;
+        margin-top: 20px;
         margin-right: 20px;
         text-decoration: none;
         text-transform: uppercase;
@@ -74,15 +81,20 @@
         .hero-area .contents .btn-border:hover {
           background: rgb(2, 0, 8);
           color: #e6dfe2; 
-          box-shadow: 0 3px 3px cornsilk;
+          box-shadow: 0 1px 1px cornsilk;
          
         }
 
-          .hero-area .contents .btn-border-filled {
+        .hero-area .contents .btn-border-filled {
             color: bisque;
             border: 1px solid cadetblue;
             box-shadow: azure;
-          }
+        }
+      .hero-area .contents .btn-border-filled:hover {
+        background: rgb(2, 0, 8);
+        color: #e6dfe2; 
+      }
+      
     .hero-area .intro-img {
       padding: 180px 0 0px; }
       .hero-area .intro-img img {
