@@ -4,7 +4,7 @@ import './style.css';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
 
-//import AnnotationLabels from '../../components/AnnotationLabels';
+import AnnotationLabels from '../../components/AnnotationLabels';
 
 
 /*
@@ -48,27 +48,15 @@ export const TaskInfoForm = ({ formData, setFormData, nextStep }) => {
                     error={touched.taskName && errors.taskName}
                     helperText={touched.taskName && errors.taskName}
                 />
-                {/* Create 1 label at a time, displaying them at the bottom as they're created */}
-                {/*
+
+                <h2 className="sub-title" >Create Labels</h2>                
                 <Field
                     name='userLabels'
                     label='Create Labels'
                     margin='normal'
                     component={AnnotationLabels}
                 />
-                */}
-            
-                <h2 className="sub-title" >Create Labels</h2>
-                {/*Display label tags as they're created. Be able to delete tags*/}
-                <Field
-                    name='labels'
-                    label='Labels'
-                    margin='normal'
-                    type="text"
-                    error={touched.userLabels && errors.userLabels}
-                    helperText={touched.userLabels && errors.userLabels}
-                />
-                
+
                 <button type='submit'>Next Step</button>
                 </Form>
             )}
