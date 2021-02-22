@@ -1,8 +1,13 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
+import './style.css';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
 
+//import AnnotationLabels from '../../components/AnnotationLabels';
+
+
+/*
 const validationSchema = yup.object({
     taskName: yup
       .string()
@@ -16,6 +21,7 @@ const validationSchema = yup.object({
       .string()
       .required('Labels are required')
   });
+*/
 
 export const TaskInfoForm = ({ formData, setFormData, nextStep }) => {
     //const classes = useStyles();
@@ -29,7 +35,7 @@ export const TaskInfoForm = ({ formData, setFormData, nextStep }) => {
                 setFormData(values);
                 nextStep();
             }}
-            validationSchema={validationSchema}
+            //validationSchema={validationSchema}
             >
             {({ errors, touched }) => (
                 <Form>
@@ -42,25 +48,27 @@ export const TaskInfoForm = ({ formData, setFormData, nextStep }) => {
                     error={touched.taskName && errors.taskName}
                     helperText={touched.taskName && errors.taskName}
                 />
-                <h2 className="sub-title" >Number of Labels</h2>
+                {/* Create 1 label at a time, displaying them at the bottom as they're created */}
+                {/*
                 <Field
-                    name='labelQuantity'
-                    label='Number of Labels'
+                    name='userLabels'
+                    label='Create Labels'
                     margin='normal'
-                    type="number"
-                    error={touched.labelQuantity && errors.labelQuantity}
-                    helperText={touched.labelQuantity && errors.labelQuantity}
+                    component={AnnotationLabels}
                 />
-                <h2 className="sub-title" >Labels</h2>
+                */}
+            
+                <h2 className="sub-title" >Create Labels</h2>
+                {/*Display label tags as they're created. Be able to delete tags*/}
                 <Field
                     name='labels'
                     label='Labels'
                     margin='normal'
                     type="text"
-                    error={touched.labels && errors.labels}
-                    helperText={touched.labels && errors.labels}
-                    //validation: check that # of submitted labels == # of labels
+                    error={touched.userLabels && errors.userLabels}
+                    helperText={touched.userLabels && errors.userLabels}
                 />
+                
                 <button type='submit'>Next Step</button>
                 </Form>
             )}
