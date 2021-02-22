@@ -5,7 +5,7 @@
     --button-bkgnd: #4a5568;
 }
 
-input[type="text"] {
+input[type="text"]{
     flex-direction: column;
     justify-content: center;
     padding: 0.65rem 0.5rem;
@@ -16,6 +16,21 @@ input[type="text"] {
     color: var(--field-text);
     border: 10px var(--field-border);
     border-radius: 10px;
+}
+
+select{
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0.65rem 0.5rem;
+    font-size: 1rem;
+    border: 10px var(--field-border);
+    border-radius: 10px;
+
+    color: var(--field-text);
+    height: auto;
+    background-color: var(--field-bkgnd);
 }
 
 input[type="button"],
