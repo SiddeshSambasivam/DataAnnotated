@@ -17,7 +17,7 @@ const user_data = {
     {
       task_id:"t123",
       task_name:"POS Tagging",
-      task_type:"Text Tagging",
+      task_type:"TextEntityAnnotation",
       raw_data: ['On Monday night , Mr. Fallon will have a co-host for the first time : The rapper Cardi B , who just released her first album, " Invasion of Privacy . "', 'My name is siddesh and its been a great way to talk and quick brown fox jumps over the lazy dog'],
       annotated_data:[],
       labels:["PERSON", "ORGANIZATION", "LOCATION"],
@@ -26,7 +26,7 @@ const user_data = {
   current_task:null
 }
 
-sessionStorage.setItem("userdata", JSON.stringify(user_data))
+localStorage.setItem("userdata", JSON.stringify(user_data))
 
 const Routes = () => {
   return (

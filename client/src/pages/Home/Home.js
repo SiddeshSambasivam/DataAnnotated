@@ -10,16 +10,28 @@ const Home = () => {
             // you can redirect to createTask Page
             console.log(e.target.id);   
             // set the task id in the session storage
-            const userdata = JSON.parse(sessionStorage.getItem('userdata'))
-            userdata.current_task = e.target.id
-            sessionStorage.setItem("userdata", JSON.stringify(userdata))
-            return <Redirect to="/profile" />
+        }
+        else{
+            console.log(e.target.id);  
+            userdata.current_task = JSON.parse(e.target.id)
+            console.log('Current Task: ',userdata) 
+            localStorage.setItem('userdata', JSON.stringify(userdata))
         }
     }
 
     // Cache the data in the session storage 
-    const userdata = JSON.parse(sessionStorage.getItem('userdata'))
-    const tasks = userdata.annotation_data.map((task) => {return(<div className="card" key={task.task_id} id={task.task_id} onClick={handleClick}>{task.task_name}</div>)})
+    let userdata = JSON.parse(localStorage.getItem('userdata'))
+    console.log("Home Page: ", userdata)
+
+    const tasks = userdata.annotation_data.map((task) => {
+        return(
+            // <Link to="/task">
+                <div id={JSON.stringify(task)} className="card" key={task.task_id} onClick={handleClick}>
+                    {task.task_name}
+                </div>
+            // </Link>
+        )
+    })
 
     return (
         <>

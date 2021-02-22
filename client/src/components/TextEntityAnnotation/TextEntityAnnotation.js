@@ -22,7 +22,7 @@ const Card = ({children}) => (
   </div>
 )
 
-class TextAnnotation extends Component{
+class TextEntityAnnotation extends Component{
   state = {
     value: [],
     tag: 'PERSON',
@@ -51,7 +51,7 @@ class TextAnnotation extends Component{
 
   render() {
 
-    console.log('Annotated Data: ', this.state.annotated_data)
+    // console.log('Annotated Data: ', this.state.annotated_data)
     return (
       <div style={{padding: 24, color: 'white'}}>
 
@@ -102,4 +102,4 @@ class TextAnnotation extends Component{
   }
 }
 
-export default TextAnnotation;
+export default TextEntityAnnotation;

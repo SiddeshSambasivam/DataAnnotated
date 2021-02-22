@@ -37,6 +37,8 @@ body {
   margin-top: 10vh;
 }
 
+a { color: inherit; } 
+
 .card {
   display: flex;
   /* position: relative; */
