@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Formik, Form, Field } from 'formik';
+import './style.css';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
 import FileUpload from '../../components/FileUpload'

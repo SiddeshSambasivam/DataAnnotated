@@ -3,6 +3,8 @@ import { Formik, Form, Field } from 'formik';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
 
+import SearchBar from '../../components/SearchBar';
+
 /*
 const validationSchema = yup.object({
     userSearchQuery: yup
@@ -11,6 +13,7 @@ const validationSchema = yup.object({
       .max(20),
   });
 */
+
 
 
 export const TaskUserForm = ({ formData, setFormData, nextStep, prevStep }) => {
@@ -33,17 +36,15 @@ export const TaskUserForm = ({ formData, setFormData, nextStep, prevStep }) => {
                 <h2 className="sub-title" >Search for user</h2>
                 <Field
                     name='userSearchQuery'
-                    label='Search Users'
-                    margin='normal' 
-                    type="text"
-                    error={touched.userSearchQuery && errors.userSearchQuery}
-                    helperText={touched.userSearchQuery && errors.userSearchQuery}
+                    label='Add Users'
+                    component={SearchBar}
+                    
                 />
-                <button type='submit'>Add</button>
+
                 <h2 className="sub-title" >User List</h2>
                 <Field
                     name='userList'
-                    label='User Kist'
+                    label='User List'
                     margin='normal'
                     type="text"
                     error={touched.userList && errors.userList}
