@@ -41,9 +41,9 @@ export const TaskUserForm = ({ formData, setFormData, nextStep, prevStep }) => {
                     
                 />
 
-                
-                <h2 className="sub-title" >User List</h2>
                 {/*
+                <h2 className="sub-title" >User List</h2>
+                
                 <Field
                     name='userList'
                     label='User List'
@@ -55,7 +55,6 @@ export const TaskUserForm = ({ formData, setFormData, nextStep, prevStep }) => {
                 */}
                 
                 <button type='submit' onClick={() => setDirection('back')}>Previous Step</button>
-                <button type='submit' onClick={() => setDirection('forward')}>Save as Draft</button>
                 <button type='submit' onClick={() => setDirection('forward')}>Create Task</button>
                 </Form>
             )}

@@ -1,4 +1,5 @@
 /* Example Styles for React Tags*/
+
 #AnnotationLabels {
     padding: 40px;
   }
@@ -6,8 +7,10 @@
   div.ReactTags__tags {
       position: relative;
   }
+
   
   /* Styles for the input */
+
   div.ReactTags__tagInput {
       width: 200px;
       border-radius: 2px;
@@ -25,7 +28,9 @@
       padding: 0 4px;
   }
   
+  
   /* Styles for selected tags */
+  
   div.ReactTags__selected span.ReactTags__tag {
       border: 1px solid #ddd;
       background: #eee;
@@ -42,7 +47,9 @@
       cursor: pointer;
   }
   
+
   /* Styles for suggestions */
+  
   div.ReactTags__suggestions {
       position: absolute;
   }

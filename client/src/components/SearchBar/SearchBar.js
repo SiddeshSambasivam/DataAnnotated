@@ -9,7 +9,8 @@ const users = [
     { id: '3', username: 'user789' }
   ];
 
-const selectedUsers =[];
+const selectedUsers =[]
+var selectedUser={}
   
 
 const filterUsers = (users, query) => {
@@ -24,21 +25,26 @@ const filterUsers = (users, query) => {
 };
 
 const displaySelectedUsers = (filteredUsers, selectedUsers) => {
-    if(filteredUsers.length == 1){
-        selectedUsers.push(filteredUsers[0])
+    if(filteredUsers.length == 1){ //also check if already in array
+        selectedUser=filteredUsers[0]
+        selectedUsers.push(selectedUser)
+        console.log(selectedUsers)
     }
-    /*
+    
     return(
         <>
             <h2 className="sub-title" >User List</h2>
+            
             <ul>
                 {selectedUsers.map((selectedUser) => (
                     <li key={selectedUser.id}>{selectedUser.username}</li>
                 ))}
             </ul>
+            
         </>        
     )
-    */
+    
+    
 }
 
 const SearchBar = () => {
@@ -76,7 +82,7 @@ const SearchBar = () => {
                 ))}
             </ul>
             {/* maybe replace this search with an add button in user form */}
-            <button type="button" onClick="displaySelectedUser(filteredUsers)">Add</button>
+            <button type="button" onClick={(e)=> {displaySelectedUsers(filteredUsers, selectedUsers)}}>Add</button>
             
             
     
