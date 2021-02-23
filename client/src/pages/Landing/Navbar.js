@@ -11,7 +11,7 @@ function Navbar() {
                 <div class="nav-header">
                
                     <div class="nav-title">
-                    AnnoMate 
+                    AnnoMated 
                     </div>
                 
                 </div>

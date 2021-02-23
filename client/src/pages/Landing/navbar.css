@@ -5,27 +5,29 @@
 body {
   margin: 0px;
   font-family: 'Noto Sans', sans-serif;
+  
 }
 
 .nav {
   height: 50px;
   width: 100%;
-  margin-top: 5px;
+  margin-top: 22px;
+  background: rgb(0, 0, 20);
   position: relative;
 }
 
 .nav > .nav-header {
   display: inline;
   text-decoration: none;
-  
+  margin-left: 100px;
 }
 
 .nav > .nav-header > .nav-title {
   display: inline-block;
   text-decoration: none;
   font-size: 22px;
-  color: rgb(8, 3, 32);
-  padding: 10px 10px 10px 10px;
+  color: rgb(236, 235, 241);
+  padding: 10px 10px 10px 0px;
   
 }
 
@@ -43,13 +45,15 @@ body {
 
 .nav > .nav-links > a {
   display: inline-block;
-  padding: 13px 10px 13px 10px;
+  padding: 13px 20px 13px 10px;
   text-decoration: none;
-  color: #efefef;
+  color: rgb(176, 170, 202);
 }
-
 .nav > .nav-links > a:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+  
+  color: rgb(232,234,239);
+  transition:ease-in;
+
 }
 
 .nav > #nav-check {

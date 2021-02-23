@@ -1,24 +1,26 @@
 import React from 'react';
-import "./style.css";
+import styles from "./style.css";
 import './Navbar.js';
+import Introgif from '../../assets/intro.gif';
 import Navbar from './Navbar.js';
+
 
 function Landing() {
     return (
         <>
-           <Navbar></Navbar>   
+            <Navbar></Navbar>  
     <header id="home" class="hero-area">   
     
       <div class="overlay">
         <span></span>
       </div>
-       
+      
       <div class="container">     
       
         <div class="row space-100">
           <div class="col-lg-6 col-md-12 col-xs-12">
             <div class="contents">
-              <h2 class="head-title">AnnoMate</h2>
+              <h2 class="head-title">AnnoMated</h2>
               
               <h4><span
                 class="txt-rotate"
@@ -30,11 +32,17 @@ function Landing() {
               </div>
             </div>
           </div>
+          
           <div class="col-lg-6 col-md-12 col-xs-12 p-0">
+            
             <div class="intro-img">
-              <img src="img/intro.png" alt=""></img>
+                      <img
+                        src={Introgif}
+                        alt='Annotation Meets Programming!' />
             </div>            
           </div>
+         
+          
         </div> 
       </div>             
     </header>

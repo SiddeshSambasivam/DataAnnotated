@@ -11,6 +11,8 @@
 body {
   color: black;
   /* background-image: url(../src/assets/bg.jpg); */
+  background: rgb(0, 0, 20);
+  /* background: rgb(10,26,51); */
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
@@ -22,7 +24,7 @@ body {
 }
 
 .container{
-  margin-left: 6rem;
+  margin-left: 4rem;
   padding: 1rem;
 }
 
