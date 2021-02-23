@@ -24,8 +24,11 @@ const filterUsers = (users, query) => {
     });
 };
 
+/*
 const displaySelectedUsers = (filteredUsers, selectedUsers) => {
-    if(filteredUsers.length == 1){ //also check if already in array
+    if(filteredUsers.length == 1){ //since we wanna add 1 user at a time, check that only 1 user is being displayed
+        //also check if said user is already in the list
+        
         selectedUser=filteredUsers[0]
         selectedUsers.push(selectedUser)
         console.log(selectedUsers)
@@ -33,21 +36,43 @@ const displaySelectedUsers = (filteredUsers, selectedUsers) => {
     
     return(
         <>
+            console.log("flag 1")
             <h2 className="sub-title" >User List</h2>
             
             <ul>
-                {selectedUsers.map((selectedUser) => (
-                    <li key={selectedUser.id}>{selectedUser.username}</li>
+                {selectedUsers.map((user) => (
+                    <li key={user.id}>{user.username}</li>
                 ))}
             </ul>
             
         </>        
-    )
-    
-    
+    )   
+}
+*/
+function displaySelectedUsers(filteredUsers, selectedUsers){
+    if(filteredUsers.length == 1){ //since we wanna add 1 user at a time, check that only 1 user is being displayed
+        //also check if said user is already in the list      
+        selectedUser=filteredUsers[0]
+        selectedUsers.push(selectedUser)
+        console.log(selectedUsers)
+        return(
+            <>
+                <h2 className="sub-title" >User List</h2>
+                
+                <ul>
+                    {selectedUsers.map((user) => (
+                        <li key={user.id}>{user.username}</li>
+                    ))}
+                </ul>
+                
+            </>        
+        ); 
+    }
+ 
 }
 
 const SearchBar = () => {
+    useState(users)
     const history = useHistory();
     const onSubmit = (e) => {
         history.push(`?s=${searchQuery}`);
