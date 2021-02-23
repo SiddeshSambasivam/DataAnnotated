@@ -1,12 +1,23 @@
 import React from 'react';
-import Navbar from '../../components/Navbar';
-import userImg from '../../assets/user.png';
+import {Redirect, Link} from 'react-router-dom';
 import JSON from 'json5';
 
+import Navbar from '../../components/Navbar';
+import userImg from '../../assets/user.png';
 import "./style.css";
 
 const User = () => {
-    const userdata = JSON.parse(localStorage.getItem('userdata'))
+
+    const cachedData = JSON.parse(localStorage.getItem('cachedData'));
+    let userdata = null;
+        
+    if(cachedData.loggedIn == false){
+        console.log("True")
+        return <Redirect to="/" />
+    }
+    else{
+        userdata = cachedData.user_data;
+    }
     
     return (
         <>

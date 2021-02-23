@@ -4,16 +4,9 @@ import './index.css';
 import Routes from './Routes';
 import reportWebVitals from './reportWebVitals';
 
-import {Provider} from 'react-redux';
-import {createStore} from 'redux'
-import reducer from './reducers/reducer'
-
-const store = createStore(reducer);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Routes />
-  </Provider>,
+    <Routes />,
   document.getElementById('root')
 );
 

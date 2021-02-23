@@ -1,33 +1,58 @@
 import React, { Component } from 'react';
 import {TokenAnnotator} from 'react-text-annotate';
+import JSON from 'json5';
 
 const TEXT = `On Monday night , Mr. Fallon will have a co-host for the first time : The rapper Cardi B , who just released her first album, " Invasion of Privacy . "`
 
-const TAG_COLORS = {
-  ORG: '#00ffa2',
-  PERSON: '#84d2ff',
-}
-
-const Card = ({children}) => (
-  <div
-    style={{
-      margin: 6,
-      maxWidth: 500,
-      padding: 16,
-      background: '#23232e',
-      borderRadius: "1.5rem"
-    }}
-  >
-    {children}
-  </div>
-)
-
 class TextEntityAnnotation extends Component{
+
   state = {
+    cachedData:{},
     value: [],
     tag: 'PERSON',
     annotated_data: [],
     raw_data: [`On Monday night , Mr. Fallon will have a co-host for the first time : The rapper Cardi B , who just released her first album, " Invasion of Privacy . "`, `My name is siddesh and its been a great way to talk and quick brown fox jumps over the lazy dog`],
+    TAG_COLORS: {},
+    tags: []
+  }
+  
+  componentDidMount(){
+    
+    let cachedData = JSON.parse(localStorage.getItem('cachedData'))
+    // console.log("Text entity component (cached data): ", cachedData)
+
+    this.setState({cachedData: cachedData})
+
+    const colors = ["#00ffa2", "#84d2ff", "#A7226E", "#EC2049", "#F26B38", "#F7DB4F", "#2F9599"];
+    let color = null;
+    let labels2color = {};
+
+    for(var i=0; i<cachedData.current_task.labels.length; i++){
+      if(i>= colors.length){
+        color = colors[colors.length-1];
+      }
+      else{
+        color = colors[i];
+      }
+      labels2color[cachedData.current_task.labels[i]] = color;
+    }
+
+    this.setState({
+      raw_data: cachedData.current_task.raw_data,
+      annotated_data: cachedData.current_task.annotated_data,
+      TAG_COLORS: labels2color,
+      tags: cachedData.current_task.labels
+    })
+
+  }
+
+  componentWillUnmount(){
+    let cachedData = this.state.cachedData;
+    cachedData.current_task.raw_data = this.state.raw_data;
+    cachedData.current_task.annotated_data = this.state.annotated_data;
+    
+    localStorage.setItem("cachedData", JSON.stringify(cachedData));
+    console.log("Annotation data updated.")
   }
 
   handleChange = value => {
@@ -47,11 +72,41 @@ class TextEntityAnnotation extends Component{
     }
     this.setState({annotated_data:[...this.state.annotated_data, record]})
     this.setState({value:[]})
+
+    let cachedData = this.state.cachedData;
+    cachedData.current_task.raw_data = this.state.raw_data;
+    cachedData.current_task.annotated_data = this.state.annotated_data;
+    
+    localStorage.setItem("cachedData", JSON.stringify(cachedData));
+    console.log("Annotation data updated.", this.state.annotated_data, cachedData.current_task.annotated_data)
+
   }
 
   render() {
+    console.log(this.state.annotated_data)
+    const Card = ({children}) => (
+      <div
+        style={{
+          margin: 6,
+          maxWidth: 500,
+          padding: 16,
+          background: '#23232e',
+          borderRadius: "1.5rem"
+        }}
+      >
+        {children}
+      </div>
+    );
 
-    // console.log('Annotated Data: ', this.state.annotated_data)
+    const TAG_COLORS = {
+      ORG: '#00ffa2',
+      PERSON: '#84d2ff',
+    }
+
+    const labelsOptions = this.state.tags.map( (tag) => {
+      return (<option key={tag} value={tag}>{tag}</option>)
+    })
+
     return (
       <div style={{padding: 24, color: 'white'}}>
 
@@ -69,8 +124,9 @@ class TextEntityAnnotation extends Component{
                 borderRadius: '1rem',
                 background:'#98c379'
               }}>
-              <option value="ORG">ORG</option>
-              <option value="PERSON">PERSON</option>
+              {/* <option value="ORG">ORG</option> */}
+              {/* <option value="PERSON">PERSON</option> */}
+              {labelsOptions}
             </select>
 
           <Card>
@@ -86,7 +142,7 @@ class TextEntityAnnotation extends Component{
               getSpan={span => ({
                 ...span,
                 tag: this.state.tag,
-                color: TAG_COLORS[this.state.tag],
+                color: this.state.TAG_COLORS[this.state.tag],
               })}
             />}
           </Card>

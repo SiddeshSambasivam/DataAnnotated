@@ -1,22 +1,38 @@
+@import url('https://fonts.googleapis.com/css2family=Lato:wght@300&display=swap');
+
 :root {
   font-size: 16px;
-  font-family: 'Rubik', sans-serif;
-  --text-primary: #b6b6b6;
-  --text-secondary: #ececec;
-  --bg-primary: #23232e;
-  --bg-secondary: #141418;
+  font-family: 'Lato', sans-serif;
+  --text-primary: #F29057;
+  --text-secondary: #F25F29;
+  --bg-primary: #02020D;
+  --bg-secondary: #05031F;
   --transition-speed: 600ms;
 }
 
 body {
-  color: black;
-  background-color: #282c34;
+  color:  black;
+  background-color: var(--bg-primary);
   margin: 0;
   padding: 0;
 }
 
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #0b0742;
+}
+
+body::-webkit-scrollbar-thumb {
+  /* background: #120c6e; */
+  background: linear-gradient(90deg, #5E72EB, #FF9190);
+}
+
 .container{
-  margin-left: 6rem;
+  margin-left: 17rem;
+  margin-top: 7vh;
   padding: 1rem;
 }
 
@@ -36,8 +52,6 @@ body {
   color: #fff;
   margin-top: 10vh;
 }
-
-a { color: inherit; } 
 
 .card {
   display: flex;

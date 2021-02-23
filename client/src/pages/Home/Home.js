@@ -5,6 +5,19 @@ import {Redirect, Link} from 'react-router-dom';
 
 const Home = () => {
 
+    // Cache the data in the session storage 
+    let cachedData = JSON.parse(localStorage.getItem('cachedData'));
+    console.log("Home page: ", cachedData)
+    let userdata = null;
+    
+    if(cachedData.loggedIn == false){
+        console.log("True")
+        return <Redirect to="/" />
+    }
+    else{
+        userdata = cachedData.user_data;
+    }
+
     function handleClick(e){
         if (e.target.id == 'createTask'){
             // you can redirect to createTask Page
@@ -12,24 +25,19 @@ const Home = () => {
             // set the task id in the session storage
         }
         else{
-            console.log(e.target.id);  
-            userdata.current_task = JSON.parse(e.target.id)
-            console.log('Current Task: ',userdata) 
-            localStorage.setItem('userdata', JSON.stringify(userdata))
+            // console.log(e.target.id);  
+            cachedData.current_task = JSON.parse(e.target.id)
+            localStorage.setItem('cachedData', JSON.stringify(cachedData))
         }
     }
 
-    // Cache the data in the session storage 
-    let userdata = JSON.parse(localStorage.getItem('userdata'))
-    console.log("Home Page: ", userdata)
-
     const tasks = userdata.annotation_data.map((task) => {
         return(
-            // <Link to="/task">
+            <Link to={{pathname:"/task"}}  key={task.task_id}>
                 <div id={JSON.stringify(task)} className="card" key={task.task_id} onClick={handleClick}>
                     {task.task_name}
                 </div>
-            // </Link>
+            </Link>
         )
     })
 
