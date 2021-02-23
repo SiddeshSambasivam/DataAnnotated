@@ -8,6 +8,8 @@ const users = [
     { id: '2', username: 'user456' },
     { id: '3', username: 'user789' }
   ];
+
+const selectedUsers =[];
   
 
 const filterUsers = (users, query) => {
@@ -20,6 +22,24 @@ const filterUsers = (users, query) => {
         return result.includes(query);
     });
 };
+
+const displaySelectedUsers = (filteredUsers, selectedUsers) => {
+    if(filteredUsers.length == 1){
+        selectedUsers.push(filteredUsers[0])
+    }
+    /*
+    return(
+        <>
+            <h2 className="sub-title" >User List</h2>
+            <ul>
+                {selectedUsers.map((selectedUser) => (
+                    <li key={selectedUser.id}>{selectedUser.username}</li>
+                ))}
+            </ul>
+        </>        
+    )
+    */
+}
 
 const SearchBar = () => {
     const history = useHistory();
@@ -35,12 +55,12 @@ const SearchBar = () => {
 
     
 
-    return (
+    return (       
         <form
             action="/"
             method="get"
             autoComplete="off"
-            onSubmit={onSubmit}
+            //onSubmit={onSubmit}
         >
             <input
                 value={searchQuery}
@@ -56,7 +76,10 @@ const SearchBar = () => {
                 ))}
             </ul>
             {/* maybe replace this search with an add button in user form */}
-            <button type="submit">Search</button>
+            <button type="button" onClick="displaySelectedUser(filteredUsers)">Add</button>
+            
+            
+    
         </form>
     );
 
