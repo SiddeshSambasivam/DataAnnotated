@@ -79,9 +79,20 @@
         width: 400px; 
         
       }
-      .hero-area .intro-img img {
+      /* .hero-area .intro-img img{
         display: inline-block;
         height: 400px;
         max-width: 100%;
-       }
+        
+      } */
+      .hero-area .intro-img {
+        padding: 180px 0 0px; }
+        .hero-area .intro-img img {
+          display: inline-block;
+          height: 400px;
+          object-fit: cover;
+          /*max-width: 100%;*/
+         }
+     
+     
       
