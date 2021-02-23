@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./style.css";
 import './Navbar.js';
-import Introgif from '../../assets/intro.gif';
+import Introgif from '../../assets/graphotate-intro.gif';
 import Navbar from './Navbar.js';
 
 
@@ -21,7 +21,7 @@ function Landing() {
           <div class="col-lg-6 col-md-12 col-xs-12">
             <div class="contents">
               <h2 class="head-title">AnnoMated</h2>
-              
+              <p>Your Annotation Mate!</p>
               <h4><span
                 class="txt-rotate"
                 data-period="2000"

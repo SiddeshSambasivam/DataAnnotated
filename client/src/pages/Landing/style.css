@@ -37,7 +37,9 @@
       .hero-area .contents p {
         color: #fff;
         font-size: 18px;
-        line-height: 26px; }
+        line-height: 26px; 
+        margin-left: 16px;
+      }
       .hero-area .contents .btn {
         margin-top: 20px;
         margin-right: 20px;
@@ -45,7 +47,9 @@
         text-transform: uppercase;
         width: 180px;
         height: 50px;
-        padding: 15px 15px; }
+        padding: 15px 15px; 
+        margin-left: 16px;
+      }
       .hero-area .contents .btn-border {
         border: 1px solid #fff;
         color: #3ecf8e; 
@@ -75,13 +79,9 @@
         width: 400px; 
         
       }
-      
-    .hero-area .intro-img {
-      padding: 180px 0 0px; }
       .hero-area .intro-img img {
         display: inline-block;
         height: 400px;
-        object-fit: cover;
-        /*max-width: 100%;*/
+        max-width: 100%;
        }
       
