@@ -33,6 +33,7 @@ select{
     background-color: var(--field-bkgnd);
 }
 
+input[name="userLabels"],
 input[type="button"],
 button {
   padding: 0.5rem 1.25rem;
