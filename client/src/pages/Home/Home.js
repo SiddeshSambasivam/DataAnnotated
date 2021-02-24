@@ -62,91 +62,18 @@ const Home = () => {
     return (
         <>
             <Navbar />
-            <div className="container">
+            <div className="container" style={{transition:"0.5ms"}}>
                 <h2 className="title">Annotation Tasks</h2>
 
                 <section className="card-list">
                         <article className="card" id="createTask" onClick={handleClick}>
-                            <header className="card-header">
-                                <p>24 Feb 2021</p>
-                                <h2>This is going to be the Task Name</h2>
-                            </header>
-
-                            <div class="card-author">
-                                <a class="author-avatar" href="#">
-                                    <img src={userimg} />
-                                </a>
-                                <svg class="half-circle" viewBox="0 0 106 57">
-                                    <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                                </svg>
-
-                                <div class="author-name">
-                                    <div class="author-name-prefix">Author</div>
-                                        {cachedData.user_data.user_name}
-                                </div>
-                            </div>
+                            {/* <header className="card-header"> */}
+                                {/* <p>24 Feb 2021</p> */}
+                                {/* <h2>This is going to be the Task Name</h2> */}
+                            {/* </header> */}
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus-circle" class="svg-inline--fa fa-plus-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="create-icon"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"></path></svg>
 
                         </article>
-
-                        <article className="card" id="createTask" onClick={handleClick}>
-                            <header className="card-header">
-                                <p>24 Feb 2021</p>
-                                <h2>This is going to be the Task Name</h2>
-                            </header>
-                            <div class="card-author">
-                                <a class="author-avatar" href="#">
-                                    <img src={userimg} />
-                                </a>
-                                <svg class="half-circle" viewBox="0 0 106 57">
-                                    <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                                </svg>
-
-                                <div class="author-name">
-                                    <div class="author-name-prefix">Author</div>
-                                        {cachedData.user_data.user_name}
-                                </div>
-                            </div>                            
-                        </article>
-
-                        <article className="card" id="createTask" onClick={handleClick}>
-                            <header className="card-header">
-                                <p>24 Feb 2021</p>
-                                <h2>This is going to be the Task Name</h2>
-                            </header>
-                            <div class="card-author">
-                                <a class="author-avatar" href="#">
-                                    <img src={userimg} />
-                                </a>
-                                <svg class="half-circle" viewBox="0 0 106 57">
-                                    <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                                </svg>
-
-                                <div class="author-name">
-                                    <div class="author-name-prefix">Author</div>
-                                        {cachedData.user_data.user_name}
-                                </div>
-                            </div>                            
-                        </article>
-
-                        <article className="card" id="createTask" onClick={handleClick}>
-                            <header className="card-header">
-                                <p>24 Feb 2021</p>
-                                <h2>This is going to be the Task Name</h2>
-                            </header>
-                            <div class="card-author">
-                                <a class="author-avatar" href="#">
-                                    <img src={userimg} />
-                                </a>
-                                <svg class="half-circle" viewBox="0 0 106 57">
-                                    <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                                </svg>
-
-                                <div class="author-name">
-                                    <div class="author-name-prefix">Author</div>
-                                        {cachedData.user_data.user_name}
-                                </div>
-                            </div>                            
-                        </article>                        
 
                     {tasks}
                 </section>

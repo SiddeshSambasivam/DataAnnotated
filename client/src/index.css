@@ -11,7 +11,7 @@
 }
 
 body {
-  color:  black;
+  color:  #eeeeee;
   background-color: var(--bg-primary);
   margin: 0;
   padding: 0;
@@ -46,13 +46,13 @@ body::-webkit-scrollbar-thumb {
 
 .title{
   font-size: 3rem;
-  color: #fff;
+  color: #eeeeee;
   margin-top: 5vh;
 }
 
 .sub-title{
   font-size: 2.5rem;
-  color: #fff;
+  color: #eeeeee;
   margin-top: 10vh;
 }
 
@@ -86,7 +86,7 @@ body::-webkit-scrollbar-thumb {
   width: 250px; 
   min-width: 250px;
   padding: 2rem;
-  color: #fff;
+  color: #eeeeee;
 
   border-radius: 16px;
   background: var(--bg-secondary);
@@ -163,6 +163,20 @@ body::-webkit-scrollbar-thumb {
 
 .card-link{
   text-decoration: none;
+}
+
+.create-icon{
+  width: 8rem;
+  align-self: center;
+  margin-top: 40%;
+  
+  /* background: linear-gradient(90deg,#ff8a00,#e52e71); */
+  /* text-shadow: none; */
+  /* -webkit-text-fill-color: transparent; */
+  /* -webkit-background-clip:unset; */
+  /* -webkit-box-decoration-break: clone; */
+  /* background-clip: text; */
+  /* border-color: white; */
 }
 
 /* .basic-grid { */

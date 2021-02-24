@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import {connect} from 'react-redux';
-
 import Home  from './pages/Home';
 import MarketPlace from './pages/MarketPlace';
 import Login from './pages/Login';

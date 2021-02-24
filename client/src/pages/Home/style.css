@@ -161,13 +161,3 @@ a {
     padding: .2rem .85rem .25rem;
     position: relative;
 }
-
-.tags a:hover {
-    background: linear-gradient(90deg,#ff8a00,#e52e71);
-    text-shadow: none;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-box-decoration-break: clone;
-    background-clip: text;
-    border-color: white;
-}
