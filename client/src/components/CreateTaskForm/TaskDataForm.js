@@ -74,8 +74,11 @@ export const TaskDataForm = ({ formData, setFormData, nextStep, prevStep }) => {
 10                  <option value="Format 2">Format 2</option>
 11                  <option value="Format 3">Format 3</option>
 12              </Field>
-                <button type='submit' onClick={() => setDirection('back')}>Previous Step</button>
-                <button type='submit' onClick={() => setDirection('forward')}>Next Step</button>
+                <div className='buttonBox'>
+                  <button className='back' type='submit' onClick={() => setDirection('back')}>Previous Step</button>
+                  <button className='next' type='submit' onClick={() => setDirection('forward')}>Next Step</button>
+                </div>
+                
                 </Form>
             )}
             </Formik>

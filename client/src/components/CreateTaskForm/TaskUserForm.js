@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Formik, Form, Field } from 'formik';
+import './style.css'
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
 
@@ -53,9 +54,11 @@ export const TaskUserForm = ({ formData, setFormData, nextStep, prevStep }) => {
                     helperText={touched.userList && errors.userList}
                 />
                 */}
-                
-                <button type='submit' onClick={() => setDirection('back')}>Previous Step</button>
-                <button type='submit' onClick={() => setDirection('forward')}>Create Task</button>
+                <div className='buttonBox'>
+                  <button className='back' type='submit' onClick={() => setDirection('back')}>Previous Step</button>
+                  <button className='next' type='submit' onClick={() => setDirection('forward')}>Create Task</button>
+                </div>
+              
                 </Form>
             )}
             </Formik>

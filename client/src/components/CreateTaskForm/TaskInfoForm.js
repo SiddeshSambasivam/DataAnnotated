@@ -56,8 +56,9 @@ export const TaskInfoForm = ({ formData, setFormData, nextStep }) => {
                     margin='normal'
                     component={AnnotationLabels}
                 />
-
-                <button type='submit'>Next Step</button>
+                <div className='buttonBox'>
+                  <button className='next-info' type='submit'>Next Step</button>
+                </div>              
                 </Form>
             )}
             </Formik>

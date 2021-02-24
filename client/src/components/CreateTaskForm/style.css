@@ -33,6 +33,26 @@ select{
     background-color: var(--field-bkgnd);
 }
 
+.buttonBox{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    margin-left: none;
+}
+
+.back{
+    margin-left: -0.5rem;
+}
+
+.next{
+    float: right; 
+    margin-left: 10rem;   
+}
+
+.next-info{
+    margin-left: 28rem;
+}
+
 input[name="userLabels"],
 input[type="button"],
 button {
@@ -49,3 +69,5 @@ button {
   transition: var(--button-bkgnd) 200ms ease-in-out, border 200ms ease-in-out,
     transform 200ms ease-in-out;
 }
+
+
