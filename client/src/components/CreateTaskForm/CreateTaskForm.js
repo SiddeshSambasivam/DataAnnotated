@@ -7,6 +7,7 @@ import {Formik} from 'formik';
 import {TaskInfoForm} from './TaskInfoForm';
 import {TaskDataForm} from './TaskDataForm';
 import {TaskUserForm} from './TaskUserForm';
+import {ConfirmationPage} from './ConfirmationPage';
 
 const CreateTaskForm = () => {
   const [step, setStep] = useState(1);
@@ -49,10 +50,10 @@ const CreateTaskForm = () => {
           prevStep={prevStep}
         />
       );
-    /*
+    
     default:
-      return <Success />;
-    */
+      return <ConfirmationPage />;
+    
   }
 }
 

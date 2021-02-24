@@ -5,6 +5,10 @@
     --button-bkgnd: #4a5568;
 }
 
+#confirmation{
+    text-align: center;
+}
+
 input[type="text"]{
     flex-direction: column;
     justify-content: center;
@@ -38,6 +42,11 @@ select{
     flex-direction: row;
     margin-top: 2rem;
     margin-left: none;
+}
+
+#confirm-button{
+    display: flex;
+    justify-content: center;
 }
 
 .back{

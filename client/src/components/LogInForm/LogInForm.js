@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Formik, Form, Field } from 'formik';
-import './style.css';
+import '../AccountForm/style.css';
+import Navbar from '../../components/Navbar';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
-
-//Account Creation Form
 
 const validationSchema = yup.object({
     username: yup
@@ -17,7 +16,7 @@ const validationSchema = yup.object({
       .required('Password is required')
   });
 
-const AccountForm = () => {
+const LogInForm = () => {
     const [formData, setFormData] = useState({
         username: '',
         password: ''
@@ -25,19 +24,20 @@ const AccountForm = () => {
     
       return (
         <>
-          <div className="container">
-              <h1 className="title">Create Account</h1>
+          <Navbar />
+          <h1 className="title account-title">Log In</h1>
+          <div className="account-container">
+              
               <Formik
-              initialValues={formData}
+              initialValues= {formData}
               onSubmit={values => {
                   setFormData(values);
-                  nextStep();
               }}
               validationSchema={validationSchema}
               >
               {({ errors, touched }) => (
                   <Form>
-                  <h2 className="sub-title" >Username</h2>
+                  <h2 className="sub-title account-sub-title" >Username</h2>
                   <Field
                       name='username'
                       label='Username'
@@ -46,7 +46,7 @@ const AccountForm = () => {
                       error={touched.username && errors.username}
                       helperText={touched.username && errors.username}
                   />
-                  <h2 className="sub-title" >Password</h2>
+                  <h2 className="sub-title account-sub-title" >Password</h2>
                   <Field
                       name='password'
                       label='Password'
@@ -54,17 +54,19 @@ const AccountForm = () => {
                       type="text"
                       error={touched.password && errors.password}
                       helperText={touched.password && errors.password}
-                  />
-               
+                  />              
                   <div className='buttonBox'>
-                    <button className='next-info' type='submit'>Log In</button>
-                  </div>              
+                    <a href="/log-in">
+                        <button className="account-button" type='submit'>Log In</button>
+                    </a>
+                 </div>              
                   </Form>
               )}
               </Formik>
           </div>       
         </>
       );
+
 
 }
 

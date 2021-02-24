@@ -14,11 +14,12 @@ const CreateTaskHome = () => {
                     <Link to="/createTask/basic-info">
                         <div className="card">Text 1</div>
                     </Link>
-                    <Link to="/createTask/basic-info">
-                        <div className="card">Text 1</div>
+                    {/*Just testing account forms, replace links with a link to the create task form */}
+                    <Link to="/createTask/create-account">
+                        <div className="card">Create Account</div>
                     </Link>
-                    <Link to="/createTask/basic-info">
-                        <div className="card">Text 1</div>
+                    <Link to="/createTask/log-in">
+                        <div className="card">Log In</div>
                     </Link>                   
                 </section>
                 <h2 className="sub-title" >Image</h2>

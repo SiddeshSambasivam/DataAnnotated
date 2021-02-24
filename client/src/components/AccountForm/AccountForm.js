@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Formik, Form, Field } from 'formik';
+import Navbar from '../../components/Navbar';
 import './style.css';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
+import {Route, Switch, Link } from "react-router-dom";
+import AccountConfirmation from './AccountConfirmation.js'
 
 //Account Creation Form
 
@@ -12,6 +15,7 @@ const validationSchema = yup.object({
       .required('Full Name is required')
       .max(20),
     email: yup
+      .string()
       .email('Invalid email')
       .required('Email is required'),
     username: yup
@@ -26,27 +30,32 @@ const validationSchema = yup.object({
 
 const AccountForm = () => {
     const [formData, setFormData] = useState({
-        fullName: '',
+        firstName: '',
+        lastName: '',
         email: '',
-        username: '',
-        password: ''
+        occupation: '',
+        city: '',
+        bio: ''
       });
-    
       return (
         <>
-          <div className="container">
-              <h1 className="title">Create Account</h1>
+          <Switch>
+              <Route path = "/account-confirmation" component={AccountConfirmation}/>
+          </Switch>
+          <Navbar />
+          <h1 className="title account-title">Create Account</h1>
+          <div className="account-container">
+              
               <Formik
-              initialValues={formData}
+              initialValues= {formData}
               onSubmit={values => {
                   setFormData(values);
-                  nextStep();
               }}
               validationSchema={validationSchema}
               >
               {({ errors, touched }) => (
                   <Form>
-                  <h2 className="sub-title" >Full Name</h2>
+                  <h2 className="sub-title account-sub-title" >Full Name</h2>
                   <Field
                       name='fullName'
                       label='Full Name'
@@ -55,7 +64,7 @@ const AccountForm = () => {
                       error={touched.fullName && errors.fullName}
                       helperText={touched.fullName && errors.fullName}
                   />
-                  <h2 className="sub-title" >Email</h2>
+                  <h2 className="sub-title account-sub-title" >Email</h2>
                   <Field
                       name='email'
                       label='Email'
@@ -64,7 +73,7 @@ const AccountForm = () => {
                       error={touched.email && errors.email}
                       helperText={touched.email && errors.email}
                   />
-                  <h2 className="sub-title" >Username</h2>
+                  <h2 className="sub-title account-sub-title" >Username</h2>
                   <Field
                       name='username'
                       label='Username'
@@ -73,7 +82,7 @@ const AccountForm = () => {
                       error={touched.username && errors.username}
                       helperText={touched.username && errors.username}
                   />
-                  <h2 className="sub-title" >Password</h2>
+                  <h2 className="sub-title account-sub-title" >Password</h2>
                   <Field
                       name='password'
                       label='Password'
@@ -81,11 +90,12 @@ const AccountForm = () => {
                       type="text"
                       error={touched.password && errors.password}
                       helperText={touched.password && errors.password}
-                  />
-               
+                  />              
                   <div className='buttonBox'>
-                    <button className='next-info' type='submit'>Create Account</button>
-                  </div>              
+                    <Link to="/account-confirmation">
+                        <button className="account-button" type='submit'>Create Account</button>
+                    </Link>
+                 </div>              
                   </Form>
               )}
               </Formik>

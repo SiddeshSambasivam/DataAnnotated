@@ -1,0 +1,34 @@
+.account-container{
+    display: flex;
+    justify-content: center;
+}
+
+input[type="email"]{
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    width: 20rem;
+    height: 1.52rem;
+    background-color: #4a5568;
+    border: 2px solid #4a5568;
+    color: white;
+    font-weight: normal;
+    margin: none;
+    display: inline-block;
+    line-height: normal;
+}
+
+.account-title{
+    text-align: center;
+}
+
+
+.account-sub-title{
+  font-size: 1.5rem;
+  margin-top: 7vh;
+}
+
+.account-button{
+    margin-left: -0.1rem;
+}
+
