@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
+import './style.css'
 //import users from './UserList'
 
 
@@ -93,24 +94,25 @@ const SearchBar = () => {
             autoComplete="off"
             //onSubmit={onSubmit}
         >
+            
             <input
                 value={searchQuery}
-                onInput={(e) => setSearchQuery(e.target.value)}
+                onInput={
+                    (e) => setSearchQuery(e.target.value)
+                }
                 type="text"
                 id="header-search"
                 placeholder="Search for users"
                 name="Search Users"
             />
+            <button type="button" onClick={(e)=> {displaySelectedUsers(filteredUsers, selectedUsers)}}>Add</button>
+            
             <ul>
                 {filteredUsers.map((user) => (
                     <li key={user.id}>{user.username}</li>
                 ))}
-            </ul>
-            {/* maybe replace this search with an add button in user form */}
-            <button type="button" onClick={(e)=> {displaySelectedUsers(filteredUsers, selectedUsers)}}>Add</button>
-            
-            
-    
+            </ul>        
+                  
         </form>
     );
 

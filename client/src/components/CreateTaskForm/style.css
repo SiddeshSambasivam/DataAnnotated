@@ -43,7 +43,7 @@ button {
   border: 2px solid var(--button-bkgnd);
   color: white;
   font-weight: normal;
-  margin-bottom: 1rem;
+  margin: 0.5rem;
   display: inline-block;
   line-height: normal;
   transition: var(--button-bkgnd) 200ms ease-in-out, border 200ms ease-in-out,
