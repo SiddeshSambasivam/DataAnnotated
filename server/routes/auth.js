@@ -3,6 +3,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const User = require("../model/User");
+const UserData = require("../model/UserData");
+
 const { registerValidation, loginValidation } = require("../validation");
 
 router.post("/register", async (req, res) => {
@@ -32,8 +34,19 @@ router.post("/register", async (req, res) => {
     try {
 
         const savedUser = await user.save();
-        res.json({ error: null, data: savedUser._id });
-
+        const user_data_format = new UserData({
+            user_id: savedUser._id,
+            name: req.body.name,
+            email: req.body.email,
+        })
+        try{
+            const savedUserData = await user_data_format.save()
+            res.json({ error: null, data: savedUser._id });
+        }
+        catch(error){
+            res.status(400).json({ error });
+        }
+        
     } catch (error) {
 
         res.status(400).json({ error });
@@ -43,6 +56,7 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
 
+    console.log(req.body)
     const { error } = loginValidation(req.body);
 
     if (error){
