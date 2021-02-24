@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
 const UserData = require("../model/UserData");
+const cors = require("cors");
 
 const dotenv = require("dotenv");
 
@@ -14,7 +15,7 @@ mongoose.connect(
       },
 );
 
-router.get("/", (req, res) => {
+router.get("/", cors(), (req, res) => {
 
   try{
     UserData.find({"user_id": req.user.id}, (error, results)=> {

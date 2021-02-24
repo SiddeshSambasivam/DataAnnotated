@@ -1,13 +1,14 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 
 const User = require("../model/User");
 const UserData = require("../model/UserData");
 
 const { registerValidation, loginValidation } = require("../validation");
 
-router.post("/register", async (req, res) => {
+router.post("/register", cors(), async (req, res) => {
 
     const { error } = registerValidation(req.body);
 
@@ -54,7 +55,7 @@ router.post("/register", async (req, res) => {
     }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", cors(), async (req, res) => {
 
     console.log(req.body)
     const { error } = loginValidation(req.body);

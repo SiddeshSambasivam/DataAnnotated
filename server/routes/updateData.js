@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
 const UserData = require("../model/UserData");
+const cors = require("cors");
 
 const dotenv = require("dotenv");
 
@@ -14,7 +15,7 @@ mongoose.connect(
       },
 );
 
-router.post("/", (req, res) => {
+router.post("/", cors(), (req, res) => {
 
     UserData.findOneAndUpdate(
         {"user_id": req.body.user.user_id}, 

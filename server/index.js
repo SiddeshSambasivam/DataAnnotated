@@ -1,6 +1,7 @@
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
+
+const app = express();
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -38,4 +39,5 @@ app.use("/api/user", authRoutes);
 app.use("/api/fetchData", verifyToken, fetchDataRoutes);
 app.use("/api/updateData", verifyToken, updateDataRoutes);
 
-app.listen(3000, () => console.log("server is running..."));
+const PORT = process.env.PORT || 5000
+app.listen(PORT, () => console.log("server is running..."));
