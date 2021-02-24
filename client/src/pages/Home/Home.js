@@ -1,7 +1,9 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import JSON from 'json5';
+// import './style.css';
 import {Redirect, Link} from 'react-router-dom';
+import userimg from '../../assets/user.png';
 
 const Home = () => {
 
@@ -33,11 +35,27 @@ const Home = () => {
 
     const tasks = userdata.annotation_data.map((task) => {
         return(
-            <Link to={{pathname:"/task"}}  key={task.task_id}>
-                <div id={JSON.stringify(task)} className="card" key={task.task_id} onClick={handleClick}>
-                    {task.task_name}
-                </div>
-            </Link>
+            <a href="/task" className="card-link" key={task.task_id}>
+                <article className="card" id={JSON.stringify(task)} onClick={handleClick}>
+                    <header className="card-header">
+                        <p>24 Feb 2021</p>
+                        <h2>{task.task_name}</h2>
+                    </header>
+                    <div class="card-author">
+                                <a class="author-avatar" href="#">
+                                    <img src={userimg} />
+                                </a>
+                                <svg class="half-circle" viewBox="0 0 106 57">
+                                    <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                                </svg>
+
+                                <div class="author-name">
+                                    <div class="author-name-prefix">Author</div>
+                                        {cachedData.user_data.user_name}
+                                </div>
+                            </div>                    
+                </article>
+            </a >
         )
     })
 
@@ -45,22 +63,160 @@ const Home = () => {
         <>
             <Navbar />
             <div className="container">
-                <h1 className="title">Welcome {userdata.user_name}!</h1>
-                <h2 className="sub-title" style={{marginTop: "0vh"}}>Dashboard</h2>
-                <section className="basic-grid">
-                    <div className="card" id="createTask" onClick={handleClick}>Create Task</div>
+                <h2 className="title">Annotation Tasks</h2>
+
+                <section className="card-list">
+                        <article className="card" id="createTask" onClick={handleClick}>
+                            <header className="card-header">
+                                <p>24 Feb 2021</p>
+                                <h2>This is going to be the Task Name</h2>
+                            </header>
+
+                            <div class="card-author">
+                                <a class="author-avatar" href="#">
+                                    <img src={userimg} />
+                                </a>
+                                <svg class="half-circle" viewBox="0 0 106 57">
+                                    <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                                </svg>
+
+                                <div class="author-name">
+                                    <div class="author-name-prefix">Author</div>
+                                        {cachedData.user_data.user_name}
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <article className="card" id="createTask" onClick={handleClick}>
+                            <header className="card-header">
+                                <p>24 Feb 2021</p>
+                                <h2>This is going to be the Task Name</h2>
+                            </header>
+                            <div class="card-author">
+                                <a class="author-avatar" href="#">
+                                    <img src={userimg} />
+                                </a>
+                                <svg class="half-circle" viewBox="0 0 106 57">
+                                    <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                                </svg>
+
+                                <div class="author-name">
+                                    <div class="author-name-prefix">Author</div>
+                                        {cachedData.user_data.user_name}
+                                </div>
+                            </div>                            
+                        </article>
+
+                        <article className="card" id="createTask" onClick={handleClick}>
+                            <header className="card-header">
+                                <p>24 Feb 2021</p>
+                                <h2>This is going to be the Task Name</h2>
+                            </header>
+                            <div class="card-author">
+                                <a class="author-avatar" href="#">
+                                    <img src={userimg} />
+                                </a>
+                                <svg class="half-circle" viewBox="0 0 106 57">
+                                    <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                                </svg>
+
+                                <div class="author-name">
+                                    <div class="author-name-prefix">Author</div>
+                                        {cachedData.user_data.user_name}
+                                </div>
+                            </div>                            
+                        </article>
+
+                        <article className="card" id="createTask" onClick={handleClick}>
+                            <header className="card-header">
+                                <p>24 Feb 2021</p>
+                                <h2>This is going to be the Task Name</h2>
+                            </header>
+                            <div class="card-author">
+                                <a class="author-avatar" href="#">
+                                    <img src={userimg} />
+                                </a>
+                                <svg class="half-circle" viewBox="0 0 106 57">
+                                    <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                                </svg>
+
+                                <div class="author-name">
+                                    <div class="author-name-prefix">Author</div>
+                                        {cachedData.user_data.user_name}
+                                </div>
+                            </div>                            
+                        </article>                        
+
                     {tasks}
                 </section>
-                <h2 className="sub-title" >Tutorial</h2>
-                <section className="basic-grid">
-                    <div className="card">Getting Started</div>
-                    <div className="card">Sentiment Analysis</div>
+                
+                
+                <section id="community">
+                <h2 className="title" >Community</h2>
+                <section className="card-list">
+                        <article className="card" id="createTask" onClick={handleClick}>
+                            <header className="card-header">
+                                <p>24 Feb 2021</p>
+                                <h2>This is going to be the Task Name</h2>
+                            </header>
+                        </article>
+
+                        <article className="card" id="createTask" onClick={handleClick}>
+                            <header className="card-header">
+                                <p>24 Feb 2021</p>
+                                <h2>This is going to be the Task Name</h2>
+                            </header>
+                        </article>
+
+                        <article className="card" id="createTask" onClick={handleClick}>
+                            <header className="card-header">
+                                <p>24 Feb 2021</p>
+                                <h2>This is going to be the Task Name</h2>
+                            </header>
+                        </article>
+
+                        <article className="card" id="createTask" onClick={handleClick}>
+                            <header className="card-header">
+                                <p>24 Feb 2021</p>
+                                <h2>This is going to be the Task Name</h2>
+                            </header>
+                        </article>                   
                 </section>
-                <h2 className="sub-title">Marketplace</h2>
-                <section className="basic-grid">
-                    <div className="card">Task 1</div>
-                    <div className="card">Task 2</div>
-                    <div className="card">Task 3</div>
+                </section>
+                
+                
+                <h2 className="sub-title">Tutorial</h2>
+                <section id="tutorial">
+                <section className="card-list">
+                        <article className="card" id="createTask" onClick={handleClick}>
+                            <header className="card-header">
+                                <p>24 Feb 2021</p>
+                                <h2>This is going to be the Task Name</h2>
+                            </header>
+                        </article>
+
+                        <article className="card" id="createTask" onClick={handleClick}>
+                            <header className="card-header">
+                                <p>24 Feb 2021</p>
+                                <h2>This is going to be the Task Name</h2>
+                            </header>
+                        </article>
+
+                        <article className="card" id="createTask" onClick={handleClick}>
+                            <header className="card-header">
+                                <p>24 Feb 2021</p>
+                                <h2>This is going to be the Task Name</h2>
+                            </header>
+                        </article>
+
+                        <article className="card" id="createTask" onClick={handleClick}>
+                            <header className="card-header">
+                                <p>24 Feb 2021</p>
+                                <h2>This is going to be the Task Name</h2>
+                            </header>
+                        </article>                   
+                </section>                
                 </section>
             </div>
         </>
