@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css'
 
 function FileUpload(props) {
   const {field, form} = props
