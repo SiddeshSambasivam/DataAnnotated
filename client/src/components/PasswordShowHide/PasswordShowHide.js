@@ -36,7 +36,7 @@ class PasswordShowHide extends Component {
           value={this.state.password}
           onChange={this.handlePasswordChange}
         />
-        <button onClick={this.toggleShow}>Show / Hide</button>
+        <button class="password-button" onClick={this.toggleShow}>Show / Hide</button>
       </div>
     );
   }

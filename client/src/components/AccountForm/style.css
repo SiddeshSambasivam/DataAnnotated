@@ -1,6 +1,18 @@
 .account-container{
     display: flex;
     justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*height: 50px;*/
+}
+
+.account-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /*gap: 10px;*/
+    row-gap: none;
+    column-gap: 2.5rem;
+    grid-auto-rows: minmax(100px, auto);
 }
 
 input[type="password"],
@@ -9,8 +21,8 @@ input[type="email"]{
     padding: 0.5rem;
     font-size: 1rem;
     border-radius: 10px;
-    width: 20rem;
-    height: 1.52rem;
+    width: 15rem;
+    height: 1.5rem;
     background-color: #4a5568;
     border: 2px solid #4a5568;
     color: white;
@@ -20,8 +32,15 @@ input[type="email"]{
     line-height: normal;
 }
 
+.password-button{
+    margin-left: 0.5rem;
+    width: max-content;
+}
+
 .account-title{
-    text-align: center;
+    position: relative;
+    text-align: left;
+    margin-left: 23.5rem;
 }
 
 
