@@ -10,14 +10,18 @@ const users = [
     { id: '3', username: 'user789' }
   ];
 
-const selectedUsers =[]
-var selectedUser={}
+let selectedUsers = []
+var selectedUser = {}
+let toggleFilteredUsers = false
+let toggleSelectedUsers= false
   
 
 const filterUsers = (users, query) => {
     if (!query) {
+        toggleFilteredUsers=false;
         return users;
     }
+    else toggleFilteredUsers = true;
 
     return users.filter((user) => {
         const result = user.username.toLowerCase();
@@ -25,26 +29,30 @@ const filterUsers = (users, query) => {
     });
 };
 
-function displaySelectedUsers(filteredUsers, selectedUsers){
+const addSelectedUser = (filteredUsers, selectedUsers) => {
     if(filteredUsers.length == 1){ //since we wanna add 1 user at a time, check that only 1 user is being displayed
         //also check if said user is already in the list      
         selectedUser=filteredUsers[0]
-        selectedUsers.push(selectedUser)
-        console.log(selectedUsers)
-        return(
-            <>
-                <h2 className="sub-title" >User List</h2>
-                
-                <ul>
-                    {selectedUsers.map((user) => (
-                        <li key={user.id}>{user.username}</li>
-                    ))}
-                </ul>
-                
-            </>        
-        ); 
+        if( !selectedUsers.includes(selectedUser)){
+            selectedUsers.push(selectedUser)
+            console.log("selected users: ", selectedUsers)
+        }
+        else console.log("cannot add duplicate user")
     }
- 
+    else console.log("cannot select multiple users")
+
+    toggleSelectedUsers = true
+    console.log("toggleSelectedUsers is ", toggleSelectedUsers)
+    return(toggleSelectedUsers); 
+}
+
+const removeSelectedUser = (selectedUsers, user) => {
+    console.log("removing user ", user)
+    const targetIndex = selectedUsers.indexOf(user)
+    if(targetIndex > -1){
+        selectedUsers.splice(targetIndex, 1)
+    }
+    console.log("new selected users: ", selectedUsers)
 }
 
 const SearchBar = () => {
@@ -60,38 +68,53 @@ const SearchBar = () => {
     const [searchQuery, setSearchQuery] = useState(query || '');
     //const [filteredUsers, filterUsers] = useState(query || '');
     const filteredUsers = filterUsers(users, searchQuery);
-    const [selectedUsers, displaySelectedUsers] = useState();
-    //delete this
+    //toggleSelectedUsers = displaySelectedUsers(filteredUsers, selectedUsers, true)
     
-
-    
+    //const [selectedUsers, setSelectedUsers] = useState(filteredUsers);  
 
     return (       
         <form
             action="/"
             method="get"
             autoComplete="off"
-            //onSubmit={onSubmit}
+            onSubmit={onSubmit}
         >
             
             <input
                 value={searchQuery}
                 onInput={
-                    (e) => setSearchQuery(e.target.value)
+                    (e) => setSearchQuery(e.target.value)                    
                 }
                 type="text"
                 id="header-search"
                 placeholder="Search for users"
                 name="Search Users"
             />
-            <button type="button" onClick={(e)=> {displaySelectedUsers(filteredUsers, selectedUsers)}}>Add</button>
+            <button type="button" onClick={(e)=> addSelectedUser(filteredUsers, selectedUsers)}>Add</button>
             
-            <ul>
-                {filteredUsers.map((user) => (
-                    <li key={user.id}>{user.username}</li>
-                ))}
-            </ul>        
-                  
+            {/* Display suggestions only when the user types */}
+            {toggleFilteredUsers
+                ? <ul>
+                    {filteredUsers.map((user) => (
+                        <li key={user.id}>{user.username}</li>
+                    ))}
+                  </ul>  
+                : ''
+            }
+       
+            <h2 className="sub-title" >User List</h2>    
+            {toggleSelectedUsers
+                ?  <ul>
+                        {selectedUsers.map((user) => (
+                            <button type="button" onClick={(e)=> removeSelectedUser(selectedUsers, user)}>
+                                <li key={user.id}>{user.username}</li>
+                            </button>
+                            
+                        ))}
+                        
+                    </ul>
+                : ''
+            }           
         </form>
     );
 
