@@ -1,23 +1,41 @@
+@import url('https://fonts.googleapis.com/css2family=Lato:wght@300&display=swap');
+
 :root {
   font-size: 16px;
-  font-family: 'Rubik', sans-serif;
-  --text-primary: #b6b6b6;
-  --text-secondary: #ececec;
-  --bg-primary: #23232e;
-  --bg-secondary: #141418;
+  font-family: 'Lato', sans-serif;
+  --text-primary: #F29057;
+  --text-secondary: #F25F29;
+  --bg-primary: #02020D;
+  --bg-secondary: #05031F;
   --transition-speed: 600ms;
 }
 
 body {
-  color: black;
-  background-color: #282c34;
+  color:  #eeeeee;
+  background-color: var(--bg-primary);
   margin: 0;
   padding: 0;
 }
 
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #0b0742;
+}
+
+body::-webkit-scrollbar-thumb {
+  /* background: #120c6e; */
+  background: #ff8a00;
+  filter: opacity(0.6);
+}
+
 .container{
-  margin-left: 6rem;
+  margin-left: 18rem;
+  margin-top: 7vh;
   padding: 1rem;
+  /* display: flex; */
 }
 
 @media only screen and (max-width: 600px) {  
@@ -28,46 +46,142 @@ body {
 
 .title{
   font-size: 3rem;
-  color: #fff;
+  color: #eeeeee;
+  margin-top: 5vh;
 }
 
 .sub-title{
   font-size: 2.5rem;
-  color: #fff;
+  color: #eeeeee;
   margin-top: 10vh;
+}
+
+.card-list {
+  display: flex;
+  padding: 3rem;
+  overflow-x: scroll;
+  margin-left: -2.75vw;
+}
+
+.card-list::-webkit-scrollbar {
+  width: 0.1px;
+  height: 0.1px;
+}
+.card-list::-webkit-scrollbar-thumb {
+  background: #201c29;
+  border-radius: 10px;
+  box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);
+}
+
+.card-list::-webkit-scrollbar-track {
+  /* background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d); */
+  width: 50px;
 }
 
 .card {
   display: flex;
-  /* position: relative; */
+  position: relative;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #353535;
-  font-size: 1.5rem;
-  color: #fff;
-  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
-  height: 10rem;
-  width: 20rem;
+  height: 350px;
+  width: 250px; 
+  min-width: 250px;
+  padding: 2rem;
+  color: #eeeeee;
 
-  border-radius: 20px;
-  transition: all 500ms;
-  overflow: hidden;
+  border-radius: 16px;
+  background: var(--bg-secondary);
+  box-shadow: -1rem 0 3rem var(--bg-primary);
+  /* box-shadow: 1rem 0 3rem 0 var(--bg-primary); */
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  transition: 0.2s;
 }
 
 .card:hover {
-  /* box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em; */
-  box-shadow:rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-  /* transform: translateY(-2px) scale(1.01); */
+   transform: translateY(-1rem);
 }
 
-.basic-grid {
+.card:hover~.card{
+  transform: translateX(5rem);
+}
+
+.card:not(:first-child) {
+  margin-left: -10px;
+}
+
+.card-header {
+  margin-bottom: auto;
+}
+
+.card-author {
+  margin: 3rem 0 0;
   display: grid;
-  gap: 5rem;
-
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: 75px 1fr;
+  align-items: center;
+  position: relative;
 }
+
+.author-avatar {
+  grid-area: auto;
+  align-self: start;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.author-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  display: block;
+  overflow: hidden;
+  margin: 16px 10px;
+}
+
+.author-name {
+  grid-area: auto;
+  box-sizing: border-box;
+}
+
+.author-name-prefix {
+  font-style: normal;
+  font-weight: 700;
+  color: #7a7a8c;
+}
+
+.half-circle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 48px;
+  fill: none;
+  stroke: #ff8a00;
+  stroke-width: 8;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.card-link{
+  text-decoration: none;
+}
+
+.create-icon{
+  width: 8rem;
+  align-self: center;
+  margin-top: 40%;
+  
+  /* background: linear-gradient(90deg,#ff8a00,#e52e71); */
+  /* text-shadow: none; */
+  /* -webkit-text-fill-color: transparent; */
+  /* -webkit-background-clip:unset; */
+  /* -webkit-box-decoration-break: clone; */
+  /* background-clip: text; */
+  /* border-color: white; */
+}
+
+/* .basic-grid { */
+  /* display: grid; */
+  /* gap: 5rem; */
+  /* z-index: -1; */
+  /* grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); */
+/* } */

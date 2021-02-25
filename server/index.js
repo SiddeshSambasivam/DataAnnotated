@@ -1,22 +1,32 @@
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
+
+const app = express();
 const dotenv = require("dotenv");
 
 dotenv.config();
-// connect to db
+
+// APIs
+// login (R)
+// signup (C)
+// fetch user data (R)
+// Update the annotation data (U)
+
 mongoose.connect(
 process.env.DB_CONNECT,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },
-  () => console.log("connected to db")
+  () => {
+    console.log("connected to db")
+  }
 );
 
 // import routes
 const authRoutes = require("./routes/auth");
-const dashboardRoutes = require("./routes/dashboard");
+const fetchDataRoutes = require("./routes/fetchData");
+const updateDataRoutes = require("./routes/updateData");
 const verifyToken = require("./routes/validate-token");
 
 // middlewares
@@ -26,6 +36,8 @@ app.use(express.json()); // for body parser
 app.use("/api/user", authRoutes);
 
 // this route is protected with token
-app.use("/api/dashboard", verifyToken, dashboardRoutes);
+app.use("/api/fetchData", verifyToken, fetchDataRoutes);
+app.use("/api/updateData", verifyToken, updateDataRoutes);
 
-app.listen(3000, () => console.log("server is running..."));
+const PORT = process.env.PORT || 5000
+app.listen(PORT, () => console.log("server is running..."));

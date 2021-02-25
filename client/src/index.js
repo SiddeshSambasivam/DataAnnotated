@@ -4,10 +4,9 @@ import './index.css';
 import Routes from './Routes';
 import reportWebVitals from './reportWebVitals';
 
+
 ReactDOM.render(
-  <React.StrictMode>
-    <Routes />
-  </React.StrictMode>,
+    <Routes />,
   document.getElementById('root')
 );
 

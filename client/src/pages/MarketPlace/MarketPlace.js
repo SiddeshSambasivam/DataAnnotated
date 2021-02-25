@@ -1,8 +1,19 @@
 import React from 'react';
+import {Redirect, Link} from 'react-router-dom';
+import JSON from 'json5';
+
 import "./style.css";
 import Navbar from '../../components/Navbar';
 
 const MarketPlace = () => {
+
+    const cachedData = JSON.parse(localStorage.getItem('cachedData'));
+        
+    if(cachedData.loggedIn == false){
+        console.log("True")
+        return <Redirect to="/" />
+    }
+
     return (
         <>
             <Navbar />
