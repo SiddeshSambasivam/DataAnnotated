@@ -33,9 +33,8 @@ const AccountForm = () => {
         firstName: '',
         lastName: '',
         email: '',
-        occupation: '',
-        city: '',
-        bio: ''
+        username: '',
+        password: ''
       });
       return (
         <>
@@ -55,14 +54,23 @@ const AccountForm = () => {
               >
               {({ errors, touched }) => (
                   <Form>
-                  <h2 className="sub-title account-sub-title" >Full Name</h2>
+                  <h2 className="sub-title account-sub-title" >First Name</h2>
                   <Field
-                      name='fullName'
-                      label='Full Name'
+                      name='firstName'
+                      label='First Name'
                       margin='normal' 
                       type="text"
-                      error={touched.fullName && errors.fullName}
-                      helperText={touched.fullName && errors.fullName}
+                      error={touched.firstName && errors.firstName}
+                      helperText={touched.firstName && errors.firstName}
+                  />
+                  <h2 className="sub-title account-sub-title" >Last Name</h2>
+                  <Field
+                      name='lastName'
+                      label='Last Name'
+                      margin='normal' 
+                      type="text"
+                      error={touched.lastName && errors.lastName}
+                      helperText={touched.lastName && errors.lastName}
                   />
                   <h2 className="sub-title account-sub-title" >Email</h2>
                   <Field
