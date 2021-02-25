@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {TokenAnnotator} from 'react-text-annotate';
 import JSON from 'json5';
 
+import './style.css';
+
 const TEXT = `On Monday night , Mr. Fallon will have a co-host for the first time : The rapper Cardi B , who just released her first album, " Invasion of Privacy . "`
 
 class TextEntityAnnotation extends Component{
@@ -46,7 +48,7 @@ class TextEntityAnnotation extends Component{
 
   }
 
-  componentWillUnmount(){
+  componentDidUpdate(){
     let cachedData = this.state.cachedData;
     cachedData.current_task.raw_data = this.state.raw_data;
     cachedData.current_task.annotated_data = this.state.annotated_data;
@@ -60,43 +62,51 @@ class TextEntityAnnotation extends Component{
   }
 
   handleTagChange = e => {
-    this.setState({tag: e.target.value})
+    
+    this.setState({tag: e.target.id})
   }
 
-  confirmAnnotation = e => {
-    let sent = this.state.raw_data.shift();
-    console.log(this.state.value)
+  handleMoveRight = () => {
+    let local_state = this.state.raw_data
+    let sent = local_state.shift();
+    console.log("SHIFT", sent)    
     let record = {
       sentence: sent,
       value: this.state.value,
     }
+    this.setState({raw_data:local_state})
     this.setState({annotated_data:[...this.state.annotated_data, record]})
     this.setState({value:[]})
 
-    let cachedData = this.state.cachedData;
-    cachedData.current_task.raw_data = this.state.raw_data;
-    cachedData.current_task.annotated_data = this.state.annotated_data;
+    // let cachedData = this.state.cachedData;
+    // cachedData.current_task.raw_data = this.state.raw_data;
+    // cachedData.current_task.annotated_data = this.state.annotated_data;
     
-    localStorage.setItem("cachedData", JSON.stringify(cachedData));
-    console.log("Annotation data updated.", this.state.annotated_data, cachedData.current_task.annotated_data)
+    // localStorage.setItem("cachedData", JSON.stringify(cachedData));
+    // console.log("Annotation data updated.", this.state.annotated_data, cachedData.current_task.annotated_data)
+  }
+
+  handleMoveLeft = () => {
+    let local_state = this.state.annotated_data
+    const annot = local_state.pop();
+    console.log("POP", annot)    
+    const sent = annot['sentence'];
+    const value = annot.value;
+
+    this.setState({raw_data:[sent, ...this.state.raw_data]});
+    this.setState({annotated_data:local_state})
+    this.setState({value:value})
+
+    // let cachedData = this.state.cachedData;
+    // cachedData.current_task.raw_data = this.state.raw_data;
+    // cachedData.current_task.annotated_data = this.state.annotated_data;
+    
+    // localStorage.setItem("cachedData", JSON.stringify(cachedData));
+    // console.log("Annotation data updated.", this.state.annotated_data, cachedData.current_task.annotated_data)
 
   }
 
   render() {
-    console.log(this.state.annotated_data)
-    const Card = ({children}) => (
-      <div
-        style={{
-          margin: 6,
-          maxWidth: 500,
-          padding: 16,
-          background: '#23232e',
-          borderRadius: "1.5rem"
-        }}
-      >
-        {children}
-      </div>
-    );
 
     const TAG_COLORS = {
       ORG: '#00ffa2',
@@ -104,33 +114,22 @@ class TextEntityAnnotation extends Component{
     }
 
     const labelsOptions = this.state.tags.map( (tag) => {
-      return (<option key={tag} value={tag}>{tag}</option>)
+      return (<a href="#" onClick={this.handleTagChange} key={tag} id={tag} style={{color: this.state.TAG_COLORS[tag]}}className="label-buttons">{tag}</a>)
     })
 
     return (
-      <div style={{padding: 24, color: 'white'}}>
-
-        <div style={{display: 'flex', marginBottom: 24}}>
-          <br/>
-          
-            <select 
-              value={this.state.tag} 
-              onChange={this.handleTagChange} 
-              style={{
-                margin: 6,
-                maxHeight:20,
-                width:100,
-                padding: 1,
-                borderRadius: '1rem',
-                background:'#98c379'
-              }}>
-              {/* <option value="ORG">ORG</option> */}
-              {/* <option value="PERSON">PERSON</option> */}
-              {labelsOptions}
-            </select>
-
-          <Card>
-            {this.state.raw_data.length == 0 ? <p>Hurray!! All the sentences are annotated</p> :<TokenAnnotator
+      <>
+      <div className="basic-grid-layout">
+        {labelsOptions}
+      </div>
+      <div className="basic-grid-layout-annotate" style={{marginTop:"3vh"}}>
+      <h2 align="left">Data </h2>
+      <h2  align="left">Annotated Data</h2>
+      </div>
+      
+      <div className="basic-grid-layout-annotate" style={{marginTop:"3vh"}}>
+          <div className="text-cards"> 
+          {this.state.raw_data.length == 0 ? <p>Hurray!! All the sentences are annotated</p> :<TokenAnnotator
               style={{
                 fontFamily: 'IBM Plex Sans',
                 maxWidth: 500,
@@ -145,16 +144,72 @@ class TextEntityAnnotation extends Component{
                 color: this.state.TAG_COLORS[this.state.tag],
               })}
             />}
-          </Card>
-        </div>
-
-        <button onClick={this.confirmAnnotation}>Confirm</button>
-        <Card>
-          <h4>Current Value</h4>
-          <pre>{JSON.stringify(this.state.value, null, 2)}</pre>
-        </Card>
+          </div>
+          <div className="text-cards"> 
+            <pre>{JSON.stringify(this.state.value, null, 1)}</pre>
+          </div>
       </div>
+
+      <div className="basic-grid-layout-annotate" style={{marginTop:"1vh"}}>
+        
+      {this.state.annotated_data.length != 0 ? <a href="#" onClick={this.handleMoveLeft} className="nav-b" align="right">&#8249;</a>:<a className="nav-b" align="right" />}
+      {this.state.raw_data.length != 0 ? <a href="#" onClick={this.handleMoveRight} className="nav-b">&#8250;</a>:<a className="nav-b" />}
+        
+      </div>
+      </>
     )
+
+    // return (
+    //   <>
+      
+    //   <div style={{padding: 24, color: 'white'}}>
+
+    //     <div style={{display: 'flex', marginBottom: 24}}>
+    //       <br/>
+          
+    //         <select 
+    //           value={this.state.tag} 
+    //           onChange={this.handleTagChange} 
+    //           style={{
+    //             margin: 6,
+    //             maxHeight:20,
+    //             width:100,
+    //             padding: 1,
+    //             borderRadius: '1rem',
+    //             background:'#98c379'
+    //           }}>
+    //           {/* <option value="ORG">ORG</option> */}
+    //           {/* <option value="PERSON">PERSON</option> */}
+    //           {labelsOptions}
+    //         </select>
+
+    //       <Card>
+    //         {this.state.raw_data.length == 0 ? <p>Hurray!! All the sentences are annotated</p> :<TokenAnnotator
+    //           style={{
+    //             fontFamily: 'IBM Plex Sans',
+    //             maxWidth: 500,
+    //             lineHeight: 1.5,
+    //           }}
+    //           tokens={this.state.raw_data[0].split(' ')}
+    //           value={this.state.value}
+    //           onChange={this.handleChange}
+    //           getSpan={span => ({
+    //             ...span,
+    //             tag: this.state.tag,
+    //             color: this.state.TAG_COLORS[this.state.tag],
+    //           })}
+    //         />}
+    //       </Card>
+    //     </div>
+
+    //     <button onClick={this.confirmAnnotation}>Confirm</button>
+    //     <Card>
+    //       <h4>Current Value</h4>
+    //       <pre>{JSON.stringify(this.state.value, null, 2)}</pre>
+    //     </Card>
+    //   </div>
+    //   </>
+    // )
   }
 }
 

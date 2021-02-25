@@ -1,0 +1,93 @@
+.basic-grid-layout {
+    display: grid;
+    gap: 1rem;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    transition: all 3s;
+ }
+
+ .label-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    height: 40px;
+    align-items: center;
+    overflow: hidden;
+
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    background: var(--bg-secondary);
+
+    transition: all 3s;
+
+ }
+
+ .basic-grid-layout-annotate {
+   display: grid;
+   gap: 8rem;
+   font-size: 16px;
+   font-family: 'Lato', sans-serif;
+   font-weight: 400;
+   grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
+   /* transition: all 3s; */
+ }
+
+ .text-cards { 
+
+   font-size: 1.6rem;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 37vw;
+   height: 50vh;
+   /* width: 700px; */
+   /* height: 50vh; */
+   align-items: center;
+   overflow: auto;
+   /* gap: 30rem; */
+
+   border-radius:0.12em;
+   box-sizing: border-box;
+   text-decoration:none;
+   background: var(--bg-secondary);
+ }
+ .text-cards::-webkit-scrollbar {
+   width: 0.15rem;
+   height: 0.01rem;
+ }
+ 
+ .text-cards::-webkit-scrollbar-track {
+   background: #0b0742;
+ }
+ 
+ .text-cards::-webkit-scrollbar-thumb {
+   /* background: #120c6e; */
+   background: #ff8a00;
+   filter: opacity(0.6);
+ }
+
+ .nav-b {
+   text-decoration: none;
+   color: #eeee;
+   /* color: var(--text-primary); */
+   font-size: 5rem;
+   width: 37vw;
+   /* height: 50vh; */
+ }
+
+ a.label-buttons:hover{
+    color:#000000;
+    border: 0.01px solid ;
+    transition: all 3s;
+}
+
+a.label-buttons:active{
+   color:#000000;
+   border: 0.01px solid ;
+}
+  

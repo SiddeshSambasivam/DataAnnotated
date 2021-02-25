@@ -23,7 +23,7 @@ const Task = () => {
             </>
         )     
     }
-    console.log("Task Page: ", cachedData.current_task)
+    // console.log("Task Page: ", cachedData.current_task)
     const Tasks = {
         "TextEntityAnnotation": TextEntityAnnotation,
     }
@@ -33,7 +33,7 @@ const Task = () => {
         <>
             <Navbar />
             <div className="container">
-                <h1 className="title">Task: {cachedData.current_task.task_name}</h1>
+                <h1 className="title">{cachedData.current_task.task_name}</h1>
                 <Task />
             </div>
         </>
