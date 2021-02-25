@@ -25,31 +25,6 @@ const filterUsers = (users, query) => {
     });
 };
 
-/*
-const displaySelectedUsers = (filteredUsers, selectedUsers) => {
-    if(filteredUsers.length == 1){ //since we wanna add 1 user at a time, check that only 1 user is being displayed
-        //also check if said user is already in the list
-        
-        selectedUser=filteredUsers[0]
-        selectedUsers.push(selectedUser)
-        console.log(selectedUsers)
-    }
-    
-    return(
-        <>
-            console.log("flag 1")
-            <h2 className="sub-title" >User List</h2>
-            
-            <ul>
-                {selectedUsers.map((user) => (
-                    <li key={user.id}>{user.username}</li>
-                ))}
-            </ul>
-            
-        </>        
-    )   
-}
-*/
 function displaySelectedUsers(filteredUsers, selectedUsers){
     if(filteredUsers.length == 1){ //since we wanna add 1 user at a time, check that only 1 user is being displayed
         //also check if said user is already in the list      
@@ -73,7 +48,7 @@ function displaySelectedUsers(filteredUsers, selectedUsers){
 }
 
 const SearchBar = () => {
-    useState(users)
+    //useState(users) //redundant
     const history = useHistory();
     const onSubmit = (e) => {
         history.push(`?s=${searchQuery}`);
@@ -83,7 +58,11 @@ const SearchBar = () => {
     const { search } = window.location;
     const query = new URLSearchParams(search).get('s');
     const [searchQuery, setSearchQuery] = useState(query || '');
+    //const [filteredUsers, filterUsers] = useState(query || '');
     const filteredUsers = filterUsers(users, searchQuery);
+    const [selectedUsers, displaySelectedUsers] = useState();
+    //delete this
+    
 
     
 
