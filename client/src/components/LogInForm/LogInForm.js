@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Formik, Form, Field } from 'formik';
 import '../AccountForm/style.css';
 import Navbar from '../../components/Navbar';
+import PasswordShowHide from '../../components/PasswordShowHide';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
 
@@ -12,7 +13,7 @@ const validationSchema = yup.object({
       .required('Username is required'),
     password: yup
       .string()
-      .max(20)
+      .max(30)
       .required('Password is required')
   });
 
@@ -52,6 +53,7 @@ const LogInForm = () => {
                       label='Password'
                       margin='normal' 
                       type="text"
+                      component={PasswordShowHide}
                       error={touched.password && errors.password}
                       helperText={touched.password && errors.password}
                   />              
