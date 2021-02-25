@@ -10,10 +10,15 @@ import PasswordShowHide from '../../components/PasswordShowHide'
 
 //Account Creation Form
 
-const validationSchema = yup.object({
-    fullName: yup
+const validationSchema = yup.object().shape({
+    firstName: yup
       .string()
-      .required('Full Name is required')
+      .required('First Name is required')
+      .max(20)
+      .nullable(),
+    lastName: yup
+      .string()
+      .required('Last Name is required')
       .max(20),
     email: yup
       .string()
@@ -25,8 +30,13 @@ const validationSchema = yup.object({
       .required('Username is required'),
     password: yup
       .string()
-      .max(20)
-      .required('Password is required')
+      .max(30)
+      .required('Password is required'),
+    passwordConfirm: yup
+      .string()
+      .max(30)
+      .oneOf([yup.ref('password'), null], 'Passwords must match')
+      .required('Password confirmation is required')
   });
 
 const AccountForm = () => {
@@ -35,7 +45,8 @@ const AccountForm = () => {
         lastName: '',
         email: '',
         username: '',
-        password: ''
+        password: '',
+        passwordConfirm: ''
       });
       return (
         <>
@@ -58,12 +69,13 @@ const AccountForm = () => {
                   <h2 className="sub-title account-sub-title" >First Name</h2>
                   <Field
                       name='firstName'
-                      label='First Name'
+                      label='firstName'
                       margin='normal' 
                       type="text"
                       error={touched.firstName && errors.firstName}
                       helperText={touched.firstName && errors.firstName}
                   />
+
                   <h2 className="sub-title account-sub-title" >Last Name</h2>
                   <Field
                       name='lastName'
@@ -73,6 +85,7 @@ const AccountForm = () => {
                       error={touched.lastName && errors.lastName}
                       helperText={touched.lastName && errors.lastName}
                   />
+
                   <h2 className="sub-title account-sub-title" >Email</h2>
                   <Field
                       name='email'
@@ -82,6 +95,7 @@ const AccountForm = () => {
                       error={touched.email && errors.email}
                       helperText={touched.email && errors.email}
                   />
+
                   <h2 className="sub-title account-sub-title" >Username</h2>
                   <Field
                       name='username'
@@ -91,6 +105,7 @@ const AccountForm = () => {
                       error={touched.username && errors.username}
                       helperText={touched.username && errors.username}
                   />
+
                   <h2 className="sub-title account-sub-title" >Create Password</h2>
                   <Field
                       name='password'
@@ -100,7 +115,18 @@ const AccountForm = () => {
                       component={PasswordShowHide}
                       error={touched.password && errors.password}
                       helperText={touched.password && errors.password}
-                  />              
+                  />
+
+                  <h2 className="sub-title account-sub-title" >Confirm Password</h2>
+                  <Field
+                      name='passwordConfirm'
+                      label='Password Confirm'
+                      margin='normal' 
+                      type="text"
+                      component={PasswordShowHide}
+                      error={touched.passwordConfirm && errors.passwordConfirm}
+                      helperText={touched.passwordConfirm && errors.passwordConfirm}
+                  />                      
                   <div className='buttonBox'>
                     <Link to="/account-confirmation">
                         <button className="account-button" type='submit'>Create Account</button>
