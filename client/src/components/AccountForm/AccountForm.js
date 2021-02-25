@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import * as yup from 'yup';
 import {Route, Switch, Link } from "react-router-dom";
 import AccountConfirmation from './AccountConfirmation.js'
+import PasswordShowHide from '../../components/PasswordShowHide'
 
 //Account Creation Form
 
@@ -90,12 +91,13 @@ const AccountForm = () => {
                       error={touched.username && errors.username}
                       helperText={touched.username && errors.username}
                   />
-                  <h2 className="sub-title account-sub-title" >Password</h2>
+                  <h2 className="sub-title account-sub-title" >Create Password</h2>
                   <Field
                       name='password'
                       label='Password'
                       margin='normal' 
                       type="text"
+                      component={PasswordShowHide}
                       error={touched.password && errors.password}
                       helperText={touched.password && errors.password}
                   />              
