@@ -56,8 +56,7 @@ const AccountForm = () => {
           </Switch>
           <Navbar />
           <h1 className="title account-title">Create Account</h1>
-          <div className="account-container">
-              
+          <div className="account-container">     
               <Formik
               initialValues= {formData}
               onSubmit={values => {
@@ -115,7 +114,7 @@ const AccountForm = () => {
                         /> 
                       </div>
                       <div>
-                        <h2 className="sub-title account-sub-title pass" >Create Password</h2>
+                        <h2 className="sub-title account-sub-title" >Create Password</h2>
                         <Field
                             name='password'
                             label='Password'
