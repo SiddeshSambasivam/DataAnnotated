@@ -22,7 +22,7 @@ const Login = () => {
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        myHeaders.append('Access-Control-Allow-Origin', '*')
+        myHeaders.append('Access-Control-Allow-Origin', 'no-cors')
         
         var raw = "";
 
@@ -33,7 +33,7 @@ const Login = () => {
           redirect: 'follow'
         };
         
-        fetch("http://localhost:3000/api/user/login?email="+email+"&password="+pass, requestOptions)
+        fetch("https://data-annotated.herokuapp.com/api/user/login?email="+email+"&password="+pass, requestOptions)
           .then(response => response.json())
           .then(result => {
                 // console.log(result);
@@ -55,7 +55,7 @@ const Login = () => {
                 redirect: 'follow'
                 };
 
-                fetch("http://localhost:3000/api/fetchData", requestOptions)
+                fetch("https://data-annotated.herokuapp.com/api/fetchData", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     console.log(result)

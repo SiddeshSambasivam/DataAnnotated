@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import JSON from 'json5';
-// import './style.css';
 import {Redirect, Link} from 'react-router-dom';
 import userimg from '../../assets/user.png';
 

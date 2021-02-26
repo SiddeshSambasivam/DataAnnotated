@@ -66,11 +66,11 @@ class TextEntityAnnotation extends Component{
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
-      // body: raw,
+      body: raw,
       redirect: 'follow'
     };
     
-    fetch("http://localhost:3000/api/updateData?user="+raw, requestOptions)
+    fetch("https://data-annotated.herokuapp.com/api/updateData?user="+raw, requestOptions)
       .then(response => response.text())
       .then(result => {
         console.log('Unmounted',result)
