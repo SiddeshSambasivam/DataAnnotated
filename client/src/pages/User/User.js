@@ -13,7 +13,7 @@ const User = () => {
         
     if(cachedData.loggedIn == false){
         console.log("True")
-        return <Redirect to="/" />
+        return <Redirect to="/login" />
     }
     else{
         userdata = cachedData.user_data;

@@ -2,7 +2,7 @@
     margin-left: 16rem;
     margin-top: -7vh;
     width: 100vw;
-    height: 7vh;
+    height: 4.5rem;
     position: fixed;
     /* background-color: #08082E; */
     background-color: var(--bg-secondary);
@@ -14,8 +14,8 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    display: inline;
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     height: 100%;
     font-family: 'Lato', sans-serif;
@@ -26,14 +26,42 @@
 
 .navbar-nav-top h3{
     margin-left: 2rem;
+    width: 72vw;
+    /* margin-right: 63vw; */
 }
 
-.navbar-nav-top svg{
-  
+@media only screen and (max-width: 768px) {  
+  .navbar-nav-top h3{
+    width: 40vw;
+    /* margin-right: 63vw; */
+} 
+} 
+
+.nav-link-top svg{
   width: 30px;
-  height: 80px;
-  margin-left:83vw;
-  margin-top: -9vh;
+  height: 400px;
+  margin-right: 2vw;
+}
+
+.logout{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 110px;
+  height: 50px;
+  border: 0.01px solid ;
+  color: #eeeeee;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-radius: 5px;
+}
+
+.logout:hover{
+  color:#ff8a00;
+  border: 0.01px solid ;
+  transition: all 0.2s;
 }
 
 .nav-link-top {
@@ -53,6 +81,7 @@
     background-color: var(--bg-secondary);
     transition: width 600ms ease;
     overflow: hidden;
+    z-index: 10;
   }
   
   .navbar-nav {
@@ -139,6 +168,7 @@
       bottom: 0;
       width: 100vw;
       height: 5rem;
+      overflow: auto;
     }
   
     .logo {

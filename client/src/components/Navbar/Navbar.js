@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import "./navbar.css";
 import JSON from 'json5';
+
+import "./navbar.css";
 
 const Navbar = () => {
 
@@ -17,22 +18,14 @@ const Navbar = () => {
     }
 
     const handleClick = (e) => {
-        if (e.target.id == 'createTask'){
-            // you can redirect to createTask Page
-            console.log(e.target.id);   
-            // set the task id in the session storage
-        }
-        else{
-            // console.log(e.target.id);  
-            cachedData.current_task = JSON.parse(e.target.id)
-            localStorage.setItem('cachedData', JSON.stringify(cachedData))
-        }
+      cachedData.current_task = JSON.parse(e.target.id)
+      localStorage.setItem('cachedData', JSON.stringify(cachedData))        
     }
 
     const TaskList = annotationTasks.map((task) => {
         return (
             <li className="nav-item">
-            <a href="/task" id={JSON.stringify(task)} key={task.task_id} onClick={handleClick} className="nav-link">
+            <a href="/task/" id={JSON.stringify(task)} key={task.task_id} onClick={handleClick} className="nav-link">
               <span className="expand-task">{task.task_name}</span>
             </a>
           </li>
@@ -87,7 +80,7 @@ const Navbar = () => {
       <nav className="navbar-top">
         <ul className="navbar-nav-top">   
           <li className="nav-link-top">     
-            <h3>Welcome {cachedData.user_data.user_name}!</h3>
+            <h3>Welcome {cachedData.user_data.name}!</h3>
           </li>
           <li className="nav-link-top">
             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -96,6 +89,9 @@ const Navbar = () => {
                 </path>
               </g>
             </svg>
+          </li>
+          <li className="nav-link-top">
+            <a href="#" onClick={HandleLogout} className="logout">Logout</a>
           </li>
       </ul>
       </nav>

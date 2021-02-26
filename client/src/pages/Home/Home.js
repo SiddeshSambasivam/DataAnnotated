@@ -14,7 +14,7 @@ const Home = () => {
     
     if(cachedData.loggedIn == false){
         console.log("True")
-        return <Redirect to="/" />
+        return <Redirect to="/login" />
     }
     else{
         userdata = cachedData.user_data;
@@ -51,7 +51,7 @@ const Home = () => {
 
                                 <div class="author-name">
                                     <div class="author-name-prefix">Author</div>
-                                        {cachedData.user_data.user_name}
+                                        {cachedData.user_data.name}
                                 </div>
                             </div>                    
                 </article>

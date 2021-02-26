@@ -20,6 +20,7 @@ router.get("/", cors(), (req, res) => {
   try{
     UserData.find({"user_id": req.user.id}, (error, results)=> {
         req.user = results[0];  
+        console.log(results)
         res.json({
           error: null,
           data: {
