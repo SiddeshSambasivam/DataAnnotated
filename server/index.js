@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors  = require("cors");
+var bodyParser = require('body-parser')
 
 const app = express();
 const dotenv = require("dotenv");
@@ -31,8 +32,8 @@ const updateDataRoutes = require("./routes/updateData");
 const verifyToken = require("./routes/validate-token");
 
 // middlewares
-app.use(express.json()); // for body parser
-
+// app.use(express.json()); // for body parser
+app.use(bodyParser.json())
 // route middlewares
 app.use("/api/user", authRoutes);
 

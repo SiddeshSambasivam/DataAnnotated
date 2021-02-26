@@ -13,7 +13,7 @@ class TextEntityAnnotation extends Component{
     value: [],
     tag: 'PERSON',
     annotated_data: [],
-    raw_data: [`On Monday night , Mr. Fallon will have a co-host for the first time : The rapper Cardi B , who just released her first album, " Invasion of Privacy . "`, `My name is siddesh and its been a great way to talk and quick brown fox jumps over the lazy dog`],
+    raw_data: [],
     TAG_COLORS: {},
     tags: []
   }
@@ -21,7 +21,6 @@ class TextEntityAnnotation extends Component{
   componentDidMount(){
     
     let cachedData = JSON.parse(localStorage.getItem('cachedData'))
-    // console.log("Text entity component (cached data): ", cachedData)
 
     this.setState({cachedData: cachedData})
 
@@ -50,30 +49,36 @@ class TextEntityAnnotation extends Component{
 
   componentDidUpdate(){
     let cachedData = this.state.cachedData;
+    
+    const objIndex = cachedData.user_data.annotation_data.findIndex((obj) => obj.task_id == cachedData.current_task.task_id)
+
     cachedData.current_task.raw_data = this.state.raw_data;
     cachedData.current_task.annotated_data = this.state.annotated_data;
-    
+    cachedData.user_data.annotation_data[objIndex] = cachedData.current_task    
+
     localStorage.setItem("cachedData", JSON.stringify(cachedData));
-    console.log("Annotation data updated.")    ;
 
     cachedData = JSON.parse(localStorage.getItem('cachedData'))
-    var raw = JSON.stringify(cachedData.user_data);
+
+    var raw = JSON.stringify({"user":cachedData.user_data});
+    
     var myHeaders = new Headers();
-    myHeaders.append("auth-token", cachedData.JWT);
+    myHeaders.append("auth-token", this.state.cachedData.JWT);
     myHeaders.append('Access-Control-Allow-Origin', '*')
     myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("data", raw);
     
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
-      body: raw,
+      // body: raw,
       redirect: 'follow'
     };
     
-    fetch("https://data-annotated.herokuapp.com/api/updateData?user="+raw, requestOptions)
-      .then(response => response.text())
+    fetch("https://data-annotated.herokuapp.com/api/updateData", requestOptions)
+      .then(response => response.json())
       .then(result => {
-        console.log('Unmounted',result)
+        console.log('Unmounted')
 
       })
       .catch(error => console.log('error', error));
@@ -91,27 +96,30 @@ class TextEntityAnnotation extends Component{
   handleMoveRight = () => {
     let local_state = this.state.raw_data
     let sent = local_state.shift();
-    console.log("SHIFT", sent)    
+
     let record = {
-      sentence: sent,
+      sentence: sent.sentence,
       value: this.state.value,
     }
-    this.setState({raw_data:local_state})
-    this.setState({annotated_data:[...this.state.annotated_data, record]})
-    this.setState({value:[]})
+    if (local_state.length != 0){
+      this.setState({raw_data:local_state})
+      this.setState({annotated_data:[...this.state.annotated_data, record]})
+      this.setState({value:local_state[0].value})
+    }    
+    else{
+      this.setState({raw_data:local_state})
+      this.setState({annotated_data:[...this.state.annotated_data, record]})
+    }
 
   }
 
   handleMoveLeft = () => {
     let local_state = this.state.annotated_data
     const annot = local_state.pop();
-    console.log("POP", annot)    
-    const sent = annot['sentence'];
-    const value = annot.value;
 
-    this.setState({raw_data:[sent, ...this.state.raw_data]});
+    this.setState({raw_data:[annot, ...this.state.raw_data]});
     this.setState({annotated_data:local_state})
-    this.setState({value:value})
+    this.setState({value: annot.value})
 
   }
 
@@ -144,7 +152,7 @@ class TextEntityAnnotation extends Component{
                 maxWidth: 500,
                 lineHeight: 1.5,
               }}
-              tokens={this.state.raw_data[0].split(' ')}
+              tokens={this.state.raw_data[0].sentence.split(' ')}
               value={this.state.value}
               onChange={this.handleChange}
               getSpan={span => ({

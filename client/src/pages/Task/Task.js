@@ -9,13 +9,16 @@ const Task = (props) => {
     let cachedData = JSON.parse(localStorage.getItem('cachedData'));
         
     if(cachedData.loggedIn == false){
-        console.log("True")
         return <Redirect to="/login" />
     }
     
     if(cachedData.current_task == null){
-        let cachedData = JSON.parse(localStorage.getItem('cachedData'));
-        if(cachedData.current_task == null){
+
+        let cachedData = {
+            "current_task":JSON.parse(props.match.params.id)
+        }
+
+        if(cachedData == null){
         
             return (
                 <>
@@ -27,7 +30,7 @@ const Task = (props) => {
             )     
         }
     }
-    console.log("Task Page: ", cachedData.current_task)
+    
     const Tasks = {
         "TextEntityAnnotation": TextEntityAnnotation,
     }

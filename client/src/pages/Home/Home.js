@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from '../../components/Navbar';
 import JSON from 'json5';
 import {Redirect, Link} from 'react-router-dom';
@@ -8,11 +8,12 @@ const Home = () => {
 
     // Cache the data in the session storage 
     let cachedData = JSON.parse(localStorage.getItem('cachedData'));
-    console.log("Home page: ", cachedData)
+    
     let userdata = null;
+
+    let taskStatus = {}
     
     if(cachedData.loggedIn == false){
-        console.log("True")
         return <Redirect to="/login" />
     }
     else{
@@ -26,15 +27,15 @@ const Home = () => {
             // set the task id in the session storage
         }
         else{
-            // console.log(e.target.id);  
             cachedData.current_task = JSON.parse(e.target.id)
             localStorage.setItem('cachedData', JSON.stringify(cachedData))
         }
     }
 
     const tasks = userdata.annotation_data.map((task) => {
+        
         return(
-            <a href="/task" className="card-link" key={task.task_id}>
+            <a href={"/task/"+JSON.stringify(task)} className="card-link" key={task.task_id}>
                 <article className="card" id={JSON.stringify(task)} onClick={handleClick}>
                     <header className="card-header">
                         <p>24 Feb 2021</p>

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Redirect} from 'react-router-dom';
 import JSON from 'json5';
 
 import "./navbar.css";
@@ -6,15 +7,26 @@ import "./navbar.css";
 const Navbar = () => {
 
     let cachedData = JSON.parse(localStorage.getItem('cachedData'));
+    const [expand, setExpand] = useState(false);
+
+    if(cachedData.loggedIn == false){
+      return <Redirect to="/login" />
+    }
+
     let annotationTasks = cachedData.user_data.annotation_data;
 
-    const [expand, setExpand] = useState(false);
+    
 
     const HandleLogout = () => {
         let cachedData = JSON.parse(localStorage.getItem('cachedData'));
         cachedData.loggedIn = false;
-        localStorage.setItem("cachedData", JSON.stringify(cachedData));
-        console.log("clicked", cachedData)
+        
+        localStorage.setItem("cachedData",JSON.stringify({
+          JWT:null,
+          loggedIn:false,
+          user_data:{},
+          current_task:null
+      }))
     }
 
     const handleClick = (e) => {
