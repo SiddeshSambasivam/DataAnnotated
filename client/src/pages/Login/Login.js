@@ -55,7 +55,7 @@ const Login = () => {
                 redirect: 'follow'
                 };
 
-                fetch("http://localhost:3000/api/fetchData", requestOptions)
+                fetch("https://data-annotated.herokuapp.com/api/fetchData", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     console.log(result)

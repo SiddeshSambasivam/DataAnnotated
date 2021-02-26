@@ -66,7 +66,7 @@ class TextEntityAnnotation extends Component{
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
-      // body: raw,
+      body: raw,
       redirect: 'follow'
     };
     
