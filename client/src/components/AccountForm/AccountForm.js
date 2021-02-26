@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { Formik, Form, Field } from 'formik';
+import React, {isValidElement, useState} from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Navbar from '../../components/Navbar';
 import './style.css';
 import PropTypes from 'prop-types';
@@ -14,30 +14,30 @@ const validationSchema = yup.object().shape({
     firstName: yup
       .string()
       .max(20)
-      .required('First Name is required')
+      .required('* First Name is required')
       .nullable(),
     lastName: yup
       .string()
       .max(20)
-      .required('Last Name is required')
+      .required('* Last Name is required')
       .nullable(),     
     email: yup
       .string()
       .email('Invalid email')
-      .required('Email is required'),
+      .required('* Email is required'),
     username: yup
       .string()
       .max(20)
-      .required('Username is required'),
+      .required('* Username is required'),
     password: yup
       .string()
       .max(30)
-      .required('Password is required'),
+      .required('* Password is required'),
     passwordConfirm: yup
       .string()
-      .max(30)
+      .max(30)    
+      .required('* Password confirmation is required')
       .oneOf([yup.ref('password'), null], 'Passwords must match')
-      .required('Password confirmation is required')
   });
 
 const AccountForm = () => {
@@ -58,14 +58,13 @@ const AccountForm = () => {
           <h1 className="title account-title">Create Account</h1>
           <div className="account-container">     
               <Formik
-              initialValues= {formData}
-              onSubmit={values => {
-                  setFormData(values);
-              }}
-              
-              validationSchema={validationSchema}
-              >
-              {({ errors, touched }) => (
+                initialValues= {formData}
+                validationSchema={validationSchema}
+                onSubmit={values => {
+                    setFormData(values);
+                }}
+                >
+                {({ errors, touched }) => (
                   <Form>
 
                     <div className="account-grid">
@@ -79,6 +78,7 @@ const AccountForm = () => {
                             error={touched.firstName && errors.firstName}
                             helperText={touched.firstName && errors.firstName}
                         />
+                        <ErrorMessage name="firstName" component="span" className="error"/>
                       </div>
                       <div>
                         <h2 className="sub-title account-sub-title" >Last Name</h2>
@@ -90,6 +90,7 @@ const AccountForm = () => {
                           error={touched.lastName && errors.lastName}
                           helperText={touched.lastName && errors.lastName}
                       />
+                      <ErrorMessage name="lastName" component="span" className="error"/>
                       </div>
                       <div>
                         <h2 className="sub-title account-sub-title" >Email</h2>
@@ -101,6 +102,7 @@ const AccountForm = () => {
                             error={touched.email && errors.email}
                             helperText={touched.email && errors.email}
                         />
+                        <ErrorMessage name="email" component="span" className="error"/>
                       </div>
                       <div>
                         <h2 className="sub-title account-sub-title" >Username</h2>
@@ -112,6 +114,7 @@ const AccountForm = () => {
                             error={touched.username && errors.username}
                             helperText={touched.username && errors.username}
                         /> 
+                        <ErrorMessage name="username" component="span" className="error"/>
                       </div>
                       <div>
                         <h2 className="sub-title account-sub-title" >Create Password</h2>
@@ -124,6 +127,7 @@ const AccountForm = () => {
                             error={touched.password && errors.password}
                             helperText={touched.password && errors.password}
                         />
+                        <ErrorMessage name="password" component="span" className="error"/>
                       </div>
                       <div>
                         <h2 className="sub-title account-sub-title pass" >Confirm Password</h2>
@@ -133,9 +137,11 @@ const AccountForm = () => {
                             margin='normal' 
                             type="text"
                             component={PasswordShowHide}
+                            secureTextEntry={true}
                             error={touched.passwordConfirm && errors.passwordConfirm}
                             helperText={touched.passwordConfirm && errors.passwordConfirm}
                         />  
+                        <ErrorMessage name="passwordConfirm" component="span" className="error"/>
                       </div>                        
                     </div>                               
                   <div className='buttonBox'>

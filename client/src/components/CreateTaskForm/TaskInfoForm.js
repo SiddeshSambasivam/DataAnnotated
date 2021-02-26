@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import './style.css';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
@@ -7,24 +7,19 @@ import * as yup from 'yup';
 import AnnotationLabels from '../../components/AnnotationLabels';
 
 
-/*
+
 const validationSchema = yup.object({
     taskName: yup
       .string()
-      .required('Task Name is required')
-      .max(20),
-    labelQuantity: yup
-      .number()
-      .required('Number of labels is required')
-      .max(3),
-    labels: yup
-      .string()
-      .required('Labels are required')
+      .required("* Task Name is required"),  
+    userLabels: yup
+      .mixed()
+      .required('* Labels are required')
+    
   });
-*/
+
 
 export const TaskInfoForm = ({ formData, setFormData, nextStep }) => {
-    //const classes = useStyles();
     return (
       <>
         <div className="container">
@@ -35,7 +30,8 @@ export const TaskInfoForm = ({ formData, setFormData, nextStep }) => {
                 setFormData(values);
                 nextStep();
             }}
-            //validationSchema={validationSchema}
+
+            validationSchema={validationSchema}
             >
             {({ errors, touched }) => (
                 <Form>
@@ -48,6 +44,7 @@ export const TaskInfoForm = ({ formData, setFormData, nextStep }) => {
                     error={touched.taskName && errors.taskName}
                     helperText={touched.taskName && errors.taskName}
                 />
+                <ErrorMessage name="taskName" component="span" className="error"/>
 
                 <h2 className="sub-title" >Create Labels</h2>                
                 <Field
@@ -56,6 +53,7 @@ export const TaskInfoForm = ({ formData, setFormData, nextStep }) => {
                     margin='normal'
                     component={AnnotationLabels}
                 />
+                <ErrorMessage name="userLabels" component="span" className="error"/>
                 <div className='buttonBox'>
                   <button className='next-info' type='submit'>Next Step</button>
                 </div>              

@@ -58,3 +58,10 @@ input[type="email"]{
     margin-left: -0.1rem;
 }
 
+.error{
+    color: white;
+    font-weight: 100;
+    display: block;
+    margin-top: 1rem;
+}
+

@@ -1,26 +1,18 @@
 import React, {useState} from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import './style.css';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
 import FileUpload from '../../components/FileUpload'
 
-/*
+
 const validationSchema = yup.object({
     fileUpload: yup
-      .string()
-      .required('File upload is required')
-      .max(20),
-    dataFormat: yup
-      .string()
-      .required('Data format is required')
-      .max(3),
+      .mixed()
+      .required('* File upload is required')
   });
-*/
-
 
 export const TaskDataForm = ({ formData, setFormData, nextStep, prevStep }) => {
-    //const classes = useStyles();
     const [direction, setDirection] = useState('back');
     return (
       <>
@@ -32,28 +24,19 @@ export const TaskDataForm = ({ formData, setFormData, nextStep, prevStep }) => {
                 setFormData(values);
                 direction === 'back' ? prevStep() : nextStep();
             }}
-            //validationSchema={validationSchema}
+            
+            validationSchema={validationSchema}
             >
             {({ errors, touched }) => (
                 <Form>
                 <h2 className="sub-title" >Upload File</h2>
-                {/*}
-                <Field
-                  name='fileUpload'
-                  label='Upload File'
-                  margin='normal' 
-                  type="text"
-                  error={touched.fileUpload && errors.fileUpload}
-                  helperText={touched.fileUpload && errors.fileUpload}
-                />
-                */}
-
                 <Field 
-                  name="file" 
+                  name="fileUpload" 
                   label="Upload File"
                   type="file" 
                   component={FileUpload}
                 />
+                <ErrorMessage name="fileUpload" component="span" className="error"/>
 
                 <h2 className="sub-title" >Data Format</h2>
                 {/*
