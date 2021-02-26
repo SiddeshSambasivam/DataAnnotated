@@ -14,7 +14,7 @@ const CreateTaskForm = () => {
   const [formData, setFormData] = useState({
     taskName: '',
     userLabels: [],
-    fileUpload: '',
+    fileUpload: [],
     dataFormat: '',
     userSearchQuery: '',
     userList: []

@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css'
+import { useDropzone } from "react-dropzone";
 
 function FileUpload(props) {
   const {field, form} = props

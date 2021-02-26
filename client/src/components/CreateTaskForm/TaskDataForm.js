@@ -1,19 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import './style.css';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
-import FileUpload from '../../components/FileUpload'
+import FileDrop from '../../components/FileDrop';
+import FileUpload from '../../components/FileUpload';
 
 
 const validationSchema = yup.object({
     fileUpload: yup
       .mixed()
-      .required('* File upload is required')
+      .required('* File upload is required'),
+    dataFormat: yup
+      .string()
+      .required('* Data format is required')
   });
+
 
 export const TaskDataForm = ({ formData, setFormData, nextStep, prevStep }) => {
     const [direction, setDirection] = useState('back');
+
+    const onDrop = useCallback(acceptedFiles => {
+      // this callback will be called after files get dropped, we will get the acceptedFiles. If you want, you can even access the rejected files too
+      console.log(acceptedFiles);
+    }, []);
+
+
     return (
       <>
         <div className="container">
@@ -35,31 +47,25 @@ export const TaskDataForm = ({ formData, setFormData, nextStep, prevStep }) => {
                   label="Upload File"
                   type="file" 
                   component={FileUpload}
+                  onDrop={onDrop}
                 />
+
                 <ErrorMessage name="fileUpload" component="span" className="error"/>
 
-                <h2 className="sub-title" >Data Format</h2>
-                {/*
+                <h2 className="sub-title" >Data Format</h2>               
                 <Field
+                  as="textarea"
+                  id="dataFormat"
                   name='dataFormat'
                   label='Data Format'
                   margin='normal'
-                  type="text"
                   error={touched.dataFormat && errors.dataFormat}
                   helperText={touched.dataFormat && errors.dataFormat}
                 />
-                */}
-                <Field 
-                  name="dataFormat" 
-                  as="select" 
-                  className="format-select">
-9                   <option value="Format 1">Format 1</option>
-10                  <option value="Format 2">Format 2</option>
-11                  <option value="Format 3">Format 3</option>
-12              </Field>
+                <ErrorMessage name="dataFormat" component="span" className="error"/>
                 <div className='buttonBox'>
                   <button className='back' type='submit' onClick={() => setDirection('back')}>Previous Step</button>
-                  <button className='next' type='submit' onClick={() => setDirection('forward')}>Next Step</button>
+                  <button className='next-data' type='submit' onClick={() => setDirection('forward')}>Next Step</button>
                 </div>
                 
                 </Form>

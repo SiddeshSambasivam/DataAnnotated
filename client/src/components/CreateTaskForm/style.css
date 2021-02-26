@@ -18,6 +18,24 @@ input[type="text"]{
     border-radius: 10px;
 }
 
+textarea{
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.65rem 0.5rem;
+    width: 30rem;
+    height: 20rem;
+
+    background-color: var(--field-bkgnd);
+    border: 10px var(--field-border);
+    border-radius: 10px;
+
+    font-size: 1rem;
+    color: #fff
+    ;
+    text-align: start;
+}
+
+
 select{
     flex-direction: column;
     justify-content: center;
@@ -68,6 +86,11 @@ select{
     margin-left: 10rem;   
 }
 
+.next-data{
+    float: right; 
+    margin-left: 20rem;
+}
+
 .next-info{
     margin-left: 28rem;
 }
@@ -88,5 +111,7 @@ button {
   transition: var(--button-bkgnd) 200ms ease-in-out, border 200ms ease-in-out,
     transform 200ms ease-in-out;
 }
+
+
 
 
