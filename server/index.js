@@ -1,11 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors  = require("cors");
 
 const app = express();
 const dotenv = require("dotenv");
 
 dotenv.config();
-
+app.use(cors())
 // APIs
 // login (R)
 // signup (C)

@@ -70,7 +70,7 @@ class TextEntityAnnotation extends Component{
       redirect: 'follow'
     };
     
-    fetch("http://localhost:3000/api/updateData?user="+raw, requestOptions)
+    fetch("https://data-annotated.herokuapp.com/api/updateData?user="+raw, requestOptions)
       .then(response => response.text())
       .then(result => {
         console.log('Unmounted',result)
