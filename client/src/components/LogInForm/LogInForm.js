@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import '../AccountForm/style.css';
 import Navbar from '../../components/Navbar';
-import PasswordShowHide from '../../components/PasswordShowHide';
-import PropTypes from 'prop-types';
 import * as yup from 'yup';
 
 const validationSchema = yup.object({
@@ -34,6 +32,7 @@ const LogInForm = () => {
               onSubmit={values => {
                   setFormData(values);
               }}
+
               validationSchema={validationSchema}
               >
               {({ errors, touched }) => (
@@ -47,16 +46,17 @@ const LogInForm = () => {
                       error={touched.username && errors.username}
                       helperText={touched.username && errors.username}
                   />
+                  <ErrorMessage name="username" component="span" className="error"/>
                   <h2 className="sub-title account-sub-title" >Password</h2>
                   <Field
                       name='password'
                       label='Password'
                       margin='normal' 
-                      type="text"
-                      component={PasswordShowHide}
+                      type="password"
                       error={touched.password && errors.password}
                       helperText={touched.password && errors.password}
-                  />              
+                  />  
+                  <ErrorMessage name="password" component="span" className="error"/>            
                   <div className='buttonBox'>
                     <a href="/log-in">
                         <button className="account-button" type='submit'>Log In</button>

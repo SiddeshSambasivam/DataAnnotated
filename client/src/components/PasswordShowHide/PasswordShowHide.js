@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-
 class PasswordShowHide extends Component {
   constructor(props) {
     super(props);

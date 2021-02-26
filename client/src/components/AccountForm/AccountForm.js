@@ -2,11 +2,9 @@ import React, {isValidElement, useState} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Navbar from '../../components/Navbar';
 import './style.css';
-import PropTypes from 'prop-types';
 import * as yup from 'yup';
 import {Route, Switch, Link } from "react-router-dom";
 import AccountConfirmation from './AccountConfirmation.js'
-import PasswordShowHide from '../../components/PasswordShowHide'
 
 //Account Creation Form
 
@@ -122,8 +120,7 @@ const AccountForm = () => {
                             name='password'
                             label='Password'
                             margin='normal' 
-                            type="text"
-                            component={PasswordShowHide}
+                            type="password"
                             error={touched.password && errors.password}
                             helperText={touched.password && errors.password}
                         />
@@ -135,8 +132,7 @@ const AccountForm = () => {
                             name='passwordConfirm'
                             label='Password Confirm'
                             margin='normal' 
-                            type="text"
-                            component={PasswordShowHide}
+                            type="password"
                             secureTextEntry={true}
                             error={touched.passwordConfirm && errors.passwordConfirm}
                             helperText={touched.passwordConfirm && errors.passwordConfirm}
