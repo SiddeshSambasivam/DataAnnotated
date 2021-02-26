@@ -20,10 +20,8 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "cd client && react-scripts start",
-    "build": "cd client && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "heroku-postbuild": "cd client && npm install && npm run build"
+
   },
   "eslintConfig": {
     "extends": [
