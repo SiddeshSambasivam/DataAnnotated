@@ -11,9 +11,11 @@ function FileUpload(props) {
     //imgTag.title = file.name;
     const fileTag = document.getElementById("myFile")
     fileTag.title = file.name
+    /*
     reader.onload = function(event) {
       fileTag.src = event.target.result
     };
+    */
     reader.readAsDataURL(file)
     form.setFieldValue(field.name, file)
   };
