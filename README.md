@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/logo.png" style="width:380px;height:300px">
+  <img src="./assets/logo.png" style="width:180px;height:140px">
 </p>
 <h1 align='center' style='font-weight:bold'>
     DataAnnotated
