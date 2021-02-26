@@ -56,13 +56,13 @@ router.post("/register", cors(), async (req, res) => {
 });
 
 router.post("/login", cors(), async (req, res) => {
-    console.log("LOGIN", req.query)
+    
     const { error } = loginValidation(req.query);
 
     if (error){
         return res.status(400).json({error: error.details[0].message})
     }
-
+    console.log("Login Called")
     const user = await User.findOne({email: req.query.email});
 
     if(!user){

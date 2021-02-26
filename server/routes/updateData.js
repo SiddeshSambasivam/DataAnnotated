@@ -20,7 +20,7 @@ mongoose.connect(
 router.post("/", cors(), (req, res) => {
 
     let user_data = JSON5.parse(req.header("data"))
-    
+    console.log("Update API")
     UserData.findOneAndUpdate(
         {"user_id":user_data.user.user_id}, 
         user_data.user, 

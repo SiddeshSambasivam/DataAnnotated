@@ -8,11 +8,6 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 app.use(cors())
-// APIs
-// login (R)
-// signup (C)
-// fetch user data (R)
-// Update the annotation data (U)
 
 mongoose.connect(
 process.env.DB_CONNECT,
@@ -31,9 +26,6 @@ const fetchDataRoutes = require("./routes/fetchData");
 const updateDataRoutes = require("./routes/updateData");
 const verifyToken = require("./routes/validate-token");
 
-// middlewares
-// app.use(express.json()); // for body parser
-app.use(bodyParser.json())
 // route middlewares
 app.use("/api/user", authRoutes);
 

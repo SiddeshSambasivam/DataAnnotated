@@ -17,6 +17,8 @@ mongoose.connect(
 
 router.get("/", cors(), (req, res) => {
 
+  console.log("Fetch Called")
+  
   try{
     UserData.find({"user_id": req.user.id}, (error, results)=> {
         req.user = results[0];  
