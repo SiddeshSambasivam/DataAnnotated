@@ -1,8 +1,10 @@
 import React from 'react';
-import styles from "./style.css";
+//import styles from "./style.css";
+import './style.css';
 import './Navbar.js';
 import Introgif from '../../assets/graphotate-intro.gif';
 import Navbar from './Navbar.js';
+import Features from './Features/features.js';
 
 
 function Landing() {
@@ -35,21 +37,24 @@ function Landing() {
           <div class="col-lg-6 col-md-12 col-xs-12 p-0">
             
             <div class="intro-img">
-                      <img
-                        src={Introgif}
-                        alt='Annotation Meets Programming!' />
+                  <img src={Introgif} alt='Annotation Meets Programming!' />
             </div>            
           </div>
          
           
         </div> 
       </div>    
-      
-      
-         
-    </header>
    
-            
+    </header>
+<br></br>
+    <div class="features">
+      
+      <Features></Features>
+    </div>
+   
+    <div>
+     <center><h2>Made with ❤</h2></center> 
+    </div>    
 
         </>
     );

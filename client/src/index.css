@@ -9,7 +9,7 @@
 }
 
 body {
-  color: black;
+  color: #eeeeee;
   /* background-image: url(../src/assets/bg.jpg); */
   background: rgb(0, 0, 20);
   /* background: rgb(10,26,51); */
@@ -45,9 +45,16 @@ body {
   margin-top: 10vh;
 }
 
+ 
+.basic-grid {
+  display: grid;
+  gap: 5rem;
+
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
 .card {
   display: flex;
-  /* position: relative; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -70,12 +77,5 @@ body {
 .card:hover {
   /* box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em; */
   box-shadow:rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-  /* transform: translateY(-2px) scale(1.01); */
-}
-
-.basic-grid {
-  display: grid;
-  gap: 5rem;
-
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+   transform: translateY(-2px) scale(1.01);
 }
