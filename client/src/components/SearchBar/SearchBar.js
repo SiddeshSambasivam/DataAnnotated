@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import './style.css'
-//import users from './UserList'
-
 
 const users = [
     { id: '1', username: 'user123' },
@@ -10,67 +8,58 @@ const users = [
     { id: '3', username: 'user789' }
   ];
 
-let selectedUsers = []
-var selectedUser = {}
-let toggleFilteredUsers = false
-let toggleSelectedUsers= false
-  
-
-const filterUsers = (users, query) => {
-    if (!query) {
-        toggleFilteredUsers=false;
-        return users;
-    }
-    else toggleFilteredUsers = true;
-
-    return users.filter((user) => {
-        const result = user.username.toLowerCase();
-        return result.includes(query);
-    });
-};
-
-const addSelectedUser = (filteredUsers, selectedUsers) => {
-    if(filteredUsers.length == 1){ //since we wanna add 1 user at a time, check that only 1 user is being displayed
-        //also check if said user is already in the list      
-        selectedUser=filteredUsers[0]
-        if( !selectedUsers.includes(selectedUser)){
-            selectedUsers.push(selectedUser)
-            console.log("selected users: ", selectedUsers)
-        }
-        else console.log("cannot add duplicate user")
-    }
-    else console.log("cannot select multiple users")
-
-    toggleSelectedUsers = true
-    console.log("toggleSelectedUsers is ", toggleSelectedUsers)
-    return(toggleSelectedUsers); 
-}
-
-const removeSelectedUser = (selectedUsers, user) => {
-    console.log("removing user ", user)
-    const targetIndex = selectedUsers.indexOf(user)
-    if(targetIndex > -1){
-        selectedUsers.splice(targetIndex, 1)
-    }
-    console.log("new selected users: ", selectedUsers)
-}
-
 const SearchBar = () => {
-    //useState(users) //redundant
+    const { search } = window.location;
+    const query = new URLSearchParams(search).get('s');
+    const [searchQuery, setSearchQuery] = useState(query || '');
+    const [filteredUsers, setFilteredUsers] = useState([]);
+    const [selectedUsers, setSelectedUsers] = useState([]);  
+
+    const filterUsers = (users) => {
+        if (!searchQuery) {
+            return users;
+        }
+    
+        return users.filter((user) => {
+            const result = user.username.toLowerCase();
+            return result.includes(searchQuery);
+        });
+    };
+    
+    const toggleFilteredUsers = (event) => {
+        setSearchQuery(event.target.value);
+        setFilteredUsers(filterUsers(users));
+    }
+
+    const addSelectedUser = () => {
+        if (filteredUsers.length == 1) { //since we wanna add 1 user at a time, check that only 1 user is being displayed
+            //also check if said user is already in the list      
+            const selectedUser=filteredUsers[0]
+            console.log(searchQuery);
+            console.log(`SelectedUser = ${selectedUser}`)
+            if( !selectedUsers.includes(selectedUser)){
+                console.log("selected users: ", selectedUsers)
+                console.log("new user being selected: ", selectedUser)
+                setSelectedUsers(selectedUsers.concat(selectedUser));
+                console.log("filtered users: ", filteredUsers);
+            }
+            else console.log("cannot add duplicate user");
+        }
+        else console.log("cannot select multiple users or no users")
+    }
+    
+    const removeSelectedUser = (selectedUsers, user) => {
+        console.log("removing user ", user);
+        let newSelectedUsers = selectedUsers.filter(aUser => !(user == aUser));
+        setSelectedUsers(newSelectedUsers);
+        console.log("new selected users: ", selectedUsers)
+    }
+
     const history = useHistory();
     const onSubmit = (e) => {
         history.push(`?s=${searchQuery}`);
         e.preventDefault();
     };
-
-    const { search } = window.location;
-    const query = new URLSearchParams(search).get('s');
-    const [searchQuery, setSearchQuery] = useState(query || '');
-    //const [filteredUsers, filterUsers] = useState(query || '');
-    const filteredUsers = filterUsers(users, searchQuery);
-    //toggleSelectedUsers = displaySelectedUsers(filteredUsers, selectedUsers, true)
-    
-    //const [selectedUsers, setSelectedUsers] = useState(filteredUsers);  
 
     return (       
         <form
@@ -82,18 +71,16 @@ const SearchBar = () => {
             
             <input
                 value={searchQuery}
-                onInput={
-                    (e) => setSearchQuery(e.target.value)                    
-                }
+                onInput={toggleFilteredUsers}
                 type="text"
                 id="header-search"
                 placeholder="Search for users"
                 name="Search Users"
             />
-            <button type="button" onClick={(e)=> addSelectedUser(filteredUsers, selectedUsers)}>Add</button>
+            <button type="button" onClick={(e)=> addSelectedUser()}>Add</button>
             
             {/* Display suggestions only when the user types */}
-            {toggleFilteredUsers
+            {!(searchQuery == '')
                 ? <ul>
                     {filteredUsers.map((user) => (
                         <li key={user.id}>{user.username}</li>
@@ -102,8 +89,10 @@ const SearchBar = () => {
                 : ''
             }
        
+
+            {/* Display users as they get added*/}
             <h2 className="sub-title" >User List</h2>    
-            {toggleSelectedUsers
+            {selectedUsers.length > 0
                 ?  <ul>
                         {selectedUsers.map((user) => (
                             <button type="button" onClick={(e)=> removeSelectedUser(selectedUsers, user)}>
