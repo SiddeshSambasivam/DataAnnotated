@@ -39,5 +39,5 @@ app.use("/api/user", authRoutes);
 app.use("/api/fetchData", verifyToken, fetchDataRoutes);
 app.use("/api/updateData", verifyToken, updateDataRoutes);
 
-const PORT = 5000
+const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log("server is running..."));
