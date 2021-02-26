@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import "./navbar.css";
 import JSON from 'json5';
+
+import "./navbar.css";
 
 const Navbar = () => {
 
@@ -17,22 +18,14 @@ const Navbar = () => {
     }
 
     const handleClick = (e) => {
-        if (e.target.id == 'createTask'){
-            // you can redirect to createTask Page
-            console.log(e.target.id);   
-            // set the task id in the session storage
-        }
-        else{
-            // console.log(e.target.id);  
-            cachedData.current_task = JSON.parse(e.target.id)
-            localStorage.setItem('cachedData', JSON.stringify(cachedData))
-        }
+      cachedData.current_task = JSON.parse(e.target.id)
+      localStorage.setItem('cachedData', JSON.stringify(cachedData))        
     }
 
     const TaskList = annotationTasks.map((task) => {
         return (
             <li className="nav-item">
-            <a href="/task" id={JSON.stringify(task)} key={task.task_id} onClick={handleClick} className="nav-link">
+            <a href="/task/" id={JSON.stringify(task)} key={task.task_id} onClick={handleClick} className="nav-link">
               <span className="expand-task">{task.task_name}</span>
             </a>
           </li>
@@ -87,16 +80,19 @@ const Navbar = () => {
       <nav className="navbar-top">
         <ul className="navbar-nav-top">   
           <li className="nav-link-top">     
-            <h3>Welcome {cachedData.user_data.user_name}!</h3>
+            <h3>Welcome {cachedData.user_data.name}!</h3>
           </li>
-          {/* <li className="nav-link-top">
+          <li className="nav-link-top">
             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
               <g class="fa-group">
                 <path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z">
                 </path>
               </g>
             </svg>
-          </li> */}
+          </li>
+          <li className="nav-link-top">
+            <a href="#" onClick={HandleLogout} className="logout">Logout</a>
+          </li>
       </ul>
       </nav>
       </>

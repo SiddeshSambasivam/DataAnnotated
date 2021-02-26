@@ -54,7 +54,29 @@ class TextEntityAnnotation extends Component{
     cachedData.current_task.annotated_data = this.state.annotated_data;
     
     localStorage.setItem("cachedData", JSON.stringify(cachedData));
-    console.log("Annotation data updated.")
+    console.log("Annotation data updated.")    ;
+
+    cachedData = JSON.parse(localStorage.getItem('cachedData'))
+    var raw = JSON.stringify(cachedData.user_data);
+    var myHeaders = new Headers();
+    myHeaders.append("auth-token", cachedData.JWT);
+    myHeaders.append('Access-Control-Allow-Origin', '*')
+    myHeaders.append("Content-Type", "application/json");
+    
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      // body: raw,
+      redirect: 'follow'
+    };
+    
+    fetch("http://localhost:3000/api/updateData?user="+raw, requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        console.log('Unmounted',result)
+
+      })
+      .catch(error => console.log('error', error));
   }
 
   handleChange = value => {
@@ -78,12 +100,6 @@ class TextEntityAnnotation extends Component{
     this.setState({annotated_data:[...this.state.annotated_data, record]})
     this.setState({value:[]})
 
-    // let cachedData = this.state.cachedData;
-    // cachedData.current_task.raw_data = this.state.raw_data;
-    // cachedData.current_task.annotated_data = this.state.annotated_data;
-    
-    // localStorage.setItem("cachedData", JSON.stringify(cachedData));
-    // console.log("Annotation data updated.", this.state.annotated_data, cachedData.current_task.annotated_data)
   }
 
   handleMoveLeft = () => {
@@ -96,13 +112,6 @@ class TextEntityAnnotation extends Component{
     this.setState({raw_data:[sent, ...this.state.raw_data]});
     this.setState({annotated_data:local_state})
     this.setState({value:value})
-
-    // let cachedData = this.state.cachedData;
-    // cachedData.current_task.raw_data = this.state.raw_data;
-    // cachedData.current_task.annotated_data = this.state.annotated_data;
-    
-    // localStorage.setItem("cachedData", JSON.stringify(cachedData));
-    // console.log("Annotation data updated.", this.state.annotated_data, cachedData.current_task.annotated_data)
 
   }
 

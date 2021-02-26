@@ -26,7 +26,6 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  /* background: #120c6e; */
   background: #ff8a00;
   filter: opacity(0.6);
 }

@@ -11,7 +11,7 @@ const MarketPlace = () => {
         
     if(cachedData.loggedIn == false){
         console.log("True")
-        return <Redirect to="/" />
+        return <Redirect to="/login" />
     }
 
     return (

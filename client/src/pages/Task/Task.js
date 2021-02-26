@@ -1,29 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import TextEntityAnnotation from '../../components/TextEntityAnnotation';
 import JSON from 'json5';
 
-const Task = () => {
+const Task = (props) => {
     
-    const cachedData = JSON.parse(localStorage.getItem('cachedData'));
+    let cachedData = JSON.parse(localStorage.getItem('cachedData'));
         
     if(cachedData.loggedIn == false){
         console.log("True")
-        return <Redirect to="/" />
+        return <Redirect to="/login" />
     }
     
     if(cachedData.current_task == null){
-        return (
-            <>
-                <Navbar />
-                <div className="container">
-                    <h1 className="title">No Task is current in progress!</h1>
-                </div>
-            </>
-        )     
+        let cachedData = JSON.parse(localStorage.getItem('cachedData'));
+        if(cachedData.current_task == null){
+        
+            return (
+                <>
+                    <Navbar />
+                    <div className="container">
+                        <h1 className="title">No Task is current in progress!</h1>
+                    </div>
+                </>
+            )     
+        }
     }
-    // console.log("Task Page: ", cachedData.current_task)
+    console.log("Task Page: ", cachedData.current_task)
     const Tasks = {
         "TextEntityAnnotation": TextEntityAnnotation,
     }

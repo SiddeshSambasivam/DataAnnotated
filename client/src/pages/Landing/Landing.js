@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import JSON from 'json5';
 
+import './Landing.module.css';
+
 const Landing = () => {
 
-    const [loggedIn, setLoginStatus] = useState(false);
+    const [loggedIn, setLoginStatus] = useState(JSON.parse(localStorage.getItem("cachedData")).loggedIn);
+    // let cachedData = ;?
 
     const handleLogin = () => {
         const cachedData = {
@@ -35,11 +38,12 @@ const Landing = () => {
         console.log("Logged In")
         return <Redirect to={{pathname:"/home"}} />
     }
-      
+
     return(
-        <>
+        <>  
             Landing Page
-            <button onClick={handleLogin}>Login</button>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <a href="/login">Login</a>
         </>
     )
 }

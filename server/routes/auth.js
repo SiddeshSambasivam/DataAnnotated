@@ -56,21 +56,20 @@ router.post("/register", cors(), async (req, res) => {
 });
 
 router.post("/login", cors(), async (req, res) => {
-
-    console.log(req.body)
-    const { error } = loginValidation(req.body);
+    console.log("LOGIN", req.query)
+    const { error } = loginValidation(req.query);
 
     if (error){
         return res.status(400).json({error: error.details[0].message})
     }
 
-    const user = await User.findOne({email: req.body.email});
+    const user = await User.findOne({email: req.query.email});
 
     if(!user){
         return res.status(400).json({error:"Email is not registered"});
     }
 
-    const validPassword = await bcrypt.compare(req.body.password, user.password);
+    const validPassword = await bcrypt.compare(req.query.password, user.password);
 
     if (!validPassword){
         return res.status(400).json({error:"Incorrect password"})

@@ -17,15 +17,19 @@ mongoose.connect(
 
 router.post("/", cors(), (req, res) => {
 
-    UserData.findOneAndUpdate(
-        {"user_id": req.body.user.user_id}, 
-        req.body.user, 
-        {upsert:true}, 
-        function(err, doc) {
-            if (err) return res.send(500, {error: err});
-            return res.send('Succesfully saved.');
-        }
-    );
+    console.log(req.query)
+    const user = JSON.parse(req.query.user)
+    
+    res.send("success")
+    // UserData.findOneAndUpdate(
+    //     {"user_id":user.user_id}, 
+    //     user, 
+    //     {upsert:true}, 
+    //     function(err, doc) {
+    //         if (err) return res.send(500, {error: err});
+    //         return res.send('Succesfully saved.');
+    //     }
+    // );
   });
   
   module.exports = router;
