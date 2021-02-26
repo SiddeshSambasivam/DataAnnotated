@@ -55,9 +55,9 @@
       .hero-area .contents .btn-border {
         border: 1px solid #fff;
         color: #01071d;
-        border-radius: 5px;
+        border-radius: 10px;
         -webkit-box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 6px rgba(63, 63, 82, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
         width: 180px;
         height: 50px;
         padding: 15px 15px;
@@ -70,9 +70,11 @@
         }
 
         .hero-area .contents .btn-border-filled {
+          border-radius: 10px;
           color: #01071d;
           background:#eeeeee; 
-            border: 1px solid cadetblue;
+          width: 180px;
+          height: 50px;
             box-shadow: 0 0 1px 1px azure;
             
         }

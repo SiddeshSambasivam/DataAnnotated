@@ -19,7 +19,7 @@ body {
 .nav > .nav-header {
   display: inline;
   text-decoration: none;
-  margin-left: 100px;
+  margin-left: 105px;
 }
 
 .nav > .nav-header > .nav-title {
@@ -47,7 +47,7 @@ body {
   display: inline-block;
   padding: 13px 20px 13px 10px;
   text-decoration: none;
-  color: rgb(176, 170, 202);
+  color: rgb(214, 211, 230);
 }
 .nav > .nav-links > a:hover {
   

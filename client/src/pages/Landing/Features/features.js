@@ -15,7 +15,7 @@ function Features() {
             <div class="card card-1">
               <h3>Developer's Friend</h3>
               
-              <center><p>Experience a seamless integration with Development</p></center>
+              <center><p>Experience a seamless integration with Development. A few commands and you are good to go!</p></center>
             </div>
             
           </div>
