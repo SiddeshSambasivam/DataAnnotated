@@ -2,9 +2,12 @@ import React from 'react';
 
 export const ConfirmationPage = () => {
     return (
-      <div className="container">
-        <h1 id="confirmation" className="title">Task Successfully Created</h1>
-        <button id="confirm-button" type='button'>View My Tasks</button>
-      </div>
+      <>
+        <div className="account-confirm-container">
+          <h1 id="account-confirm-title" className="title">Task Successfully Created</h1> 
+        </div>
+        <button id="account-confirm-button" type='button'>View My Tasks</button>
+      </>
+      
     );
   };

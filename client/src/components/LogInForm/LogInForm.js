@@ -24,8 +24,11 @@ const LogInForm = () => {
       return (
         <>
           <Navbar />
-          <h1 className="title account-title">Log In</h1>
           <div className="account-container">
+            <h1 className="title account-title">Log In</h1>
+          </div>
+         
+          <div className="account-grid-container">
               
               <Formik
               initialValues= {formData}

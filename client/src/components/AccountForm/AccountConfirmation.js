@@ -3,10 +3,10 @@ import React from 'react';
 const AccountConfirmation = () => {
     return (
        <>
-        <h1 className="account-title">Account Created</h1>
-        <div className="account-container">      
-            <button type='button'>View My Account</button>
+        <div className="confirmation-container">
+          <h1 id="confirmation-title" className="title">Account Created</h1> 
         </div>
+        <button id="confirmation-button" type='button'>View My Account</button>
        </> 
        
     );

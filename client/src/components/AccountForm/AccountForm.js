@@ -53,8 +53,11 @@ const AccountForm = () => {
               <Route path = "/account-confirmation" component={AccountConfirmation}/>
           </Switch>
           <Navbar />
-          <h1 className="title account-title">Create Account</h1>
-          <div className="account-container">     
+          <div className="account-container">
+            <h1 className="title account-title">Create Account</h1>
+          </div>
+          
+          <div className="account-grid-container">     
               <Formik
                 initialValues= {formData}
                 validationSchema={validationSchema}
@@ -62,7 +65,7 @@ const AccountForm = () => {
                     setFormData(values);
                 }}
                 >
-                {({ errors, touched }) => (
+                {({ errors, touched, isValid, dirty }) => (
                   <Form>
 
                     <div className="account-grid">
@@ -142,7 +145,7 @@ const AccountForm = () => {
                     </div>                               
                   <div className='buttonBox'>
                     <Link to="/account-confirmation">
-                        <button className="account-button" type='submit'>Create Account</button>
+                        <button className={!(dirty && isValid) ? "disabled-btn" : "account-button"} disabled={!(dirty && isValid)} type='submit'>Create Account</button>
                     </Link>
                  </div>              
                   </Form>

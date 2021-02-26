@@ -5,10 +5,6 @@
     --button-bkgnd: #4a5568;
 }
 
-#confirmation{
-    text-align: center;
-}
-
 input[type="text"]{
     flex-direction: column;
     justify-content: center;
@@ -44,8 +40,22 @@ select{
     margin-left: none;
 }
 
-#confirm-button{
+
+#confirmation-title{
+    text-align: center;
+    margin-top: 10rem;
+}
+
+
+#confirmation-button{
+    margin: 0 auto;
+    display: block;
+}
+
+
+.confirmation-container{
     display: flex;
+    flex-direction: row;
     justify-content: center;
 }
 
