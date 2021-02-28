@@ -15,8 +15,6 @@ const Navbar = () => {
 
     let annotationTasks = cachedData.user_data.annotation_data;
 
-    
-
     const HandleLogout = () => {
         let cachedData = JSON.parse(localStorage.getItem('cachedData'));
         cachedData.loggedIn = false;
@@ -37,7 +35,7 @@ const Navbar = () => {
     const TaskList = annotationTasks.map((task) => {
         return (
             <li className="nav-item">
-            <a href="/task/" id={JSON.stringify(task)} key={task.task_id} onClick={handleClick} className="nav-link">
+            <a href={"/task/"+task.task_id} id={task.task_id} key={task.task_id} onClick={handleClick} className="nav-link">
               <span className="expand-task">{task.task_name}</span>
             </a>
           </li>

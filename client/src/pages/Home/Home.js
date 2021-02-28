@@ -32,10 +32,12 @@ const Home = () => {
         }
     }
 
+    console.log(cachedData)
+
     const tasks = userdata.annotation_data.map((task) => {
         
         return(
-            <a href={"/task/"+JSON.stringify(task)} className="card-link" key={task.task_id}>
+            <a href={"/task/"+task.task_id} className="card-link" key={task.task_id}>
                 <article className="card" id={JSON.stringify(task)} onClick={handleClick}>
                     <header className="card-header">
                         <p>24 Feb 2021</p>
@@ -62,11 +64,11 @@ const Home = () => {
     return (
         <>
             <Navbar />
-<<<<<<< HEAD
             <div className="container" style={{transition:"0.5ms"}}>
                 <h2 className="title">Annotation Tasks</h2>
 
                 <section className="card-list">
+                    <a href="/createTask">
                         <article className="card" id="createTask" onClick={handleClick}>
                             {/* <header className="card-header"> */}
                                 {/* <p>24 Feb 2021</p> */}
@@ -75,22 +77,8 @@ const Home = () => {
                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus-circle" class="svg-inline--fa fa-plus-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="create-icon"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"></path></svg>
 
                         </article>
-
+                    </a>
                     {tasks}
-=======
-            <div className="container">
-                <h1 className="title">Welcome {userdata.user_name}!</h1>
-                <h2 className="sub-title" style={{marginTop: "0vh"}}>Dashboard</h2>
-                <section className="basic-grid">
-                    <Link to="/createTask" className="task-link">
-                        <div className="card">Create Task</div>
-                        {/* --not sure, so I replaced with diff code for now, while I test out the create task pages
-                        <div className="card" id="createTask" onClick={handleClick}>Create Task</div>
-                        {tasks}
-                        */}
-                    </Link>
-                    <div className="card">POS Tagging</div>
->>>>>>> 9_create_task
                 </section>
                 
                 

@@ -4,8 +4,6 @@ import JSON from 'json5';
 
 import './style.css';
 
-const TEXT = `On Monday night , Mr. Fallon will have a co-host for the first time : The rapper Cardi B , who just released her first album, " Invasion of Privacy . "`
-
 class TextEntityAnnotation extends Component{
 
   state = {
@@ -20,9 +18,9 @@ class TextEntityAnnotation extends Component{
   
   componentDidMount(){
     
-    let cachedData = JSON.parse(localStorage.getItem('cachedData'))
-
-    this.setState({cachedData: cachedData})
+    let cachedData = JSON.parse(localStorage.getItem('cachedData'));
+    cachedData.current_task = this.props.current_task;
+    this.setState({cachedData: cachedData});
 
     const colors = ["#00ffa2", "#84d2ff", "#A7226E", "#EC2049", "#F26B38", "#F7DB4F", "#2F9599"];
     let color = null;

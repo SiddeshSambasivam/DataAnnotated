@@ -11,37 +11,34 @@ const Task = (props) => {
     if(cachedData.loggedIn == false){
         return <Redirect to="/login" />
     }
+
+    const objIndex = cachedData.user_data.annotation_data.findIndex((obj) => obj.task_id == props.match.params.id) 
+    const annotation_data = cachedData.user_data.annotation_data[objIndex]
+
     
-    if(cachedData.current_task == null){
-
-        let cachedData = {
-            "current_task":JSON.parse(props.match.params.id)
-        }
-
-        if(cachedData == null){
+    if(props.match.params.id == null){
         
-            return (
-                <>
-                    <Navbar />
-                    <div className="container">
-                        <h1 className="title">No Task is current in progress!</h1>
-                    </div>
-                </>
-            )     
-        }
+        return (
+            <>
+                <Navbar />
+                <div className="container">
+                    <h1 className="title">No Task is current in progress!</h1>
+                </div>
+            </>
+        )     
     }
     
     const Tasks = {
         "TextEntityAnnotation": TextEntityAnnotation,
     }
-    const Task = Tasks[cachedData.current_task.task_type]
+    const Task = Tasks[annotation_data.task_type]
 
     return (
         <>
             <Navbar />
             <div className="container">
-                <h1 className="title">{cachedData.current_task.task_name}</h1>
-                <Task />
+                <h1 className="title">{annotation_data.task_name}</h1>
+                <Task current_task={annotation_data}/>
             </div>
         </>
     )
