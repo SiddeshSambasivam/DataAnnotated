@@ -1,0 +1,32 @@
+:root{
+  --field-bkgnd: #4a5568;
+  --field-text: #b6b6b6;
+  --field-border: #0B0B0D;
+  --button-bkgnd: #4a5568;
+}
+
+.dropzone-area {
+  width: 25rem;
+  height: 15rem;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+  background-color: var(--field-bkgnd);
+  border: 10px var(--field-border);
+  border-radius: 12px;   
+}
+
+.dropzone-text{
+  text-align: center;
+  font-size: 24px;
+  color: var(--field-text);
+}
+
+.upload-icon {
+  width: 100%;
+  height: 100%;
+  margin-top: 0 auto;
+  display: block;
+}
