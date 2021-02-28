@@ -1,13 +1,10 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Backend to dataAnnotated platform",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js",
     "start": "node ./server/index.js",
-    "heroku-postbuild": "cd client && npm && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Siddesh Sambasivam Suseela",
   "license": "ISC",
