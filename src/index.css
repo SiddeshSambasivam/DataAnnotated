@@ -111,6 +111,27 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: auto;
 }
 
+.card-header h2 {
+  font-size: 30px;
+  margin: .25rem 0 auto;
+  text-decoration: none;
+  color: inherit;
+  border: 0;
+  display: inline-block;
+  cursor: pointer;
+  transition: 5s;
+}
+
+.card-header h2:hover {
+  /* background: linear-gradient(90deg,#ff8a00,#e52e71); */
+  background: linear-gradient(90deg,#ff8a00, var(--text-secondary));
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: 5s;
+}
+
 .card-author {
   margin: 3rem 0 0;
   display: grid;
