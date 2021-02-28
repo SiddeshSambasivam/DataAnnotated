@@ -42,6 +42,8 @@ const Home = () => {
                     <header className="card-header">
                         <p>24 Feb 2021</p>
                         <h2>{task.task_name}</h2>
+                        <h4>{task.task_type}</h4>
+                        {/* <h4>Dataset Size: {task.raw_data.length+task.annotated_data.length}</h4> */}
                     </header>
                     <div class="card-author">
                                 <a class="author-avatar" href="#">

@@ -1,9 +1,11 @@
 import React from 'react';
+// import AccountForm from '../../components/AccountForm';
 
 const Signup = () => {
+
     return (
         <>
-            Signup Page
+            {/* <AccountForm></AccountForm> */}
         </>
     )
 }

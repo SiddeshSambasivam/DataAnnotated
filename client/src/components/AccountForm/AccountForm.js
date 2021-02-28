@@ -52,7 +52,7 @@ const AccountForm = () => {
           <Switch>
               <Route path = "/account-confirmation" component={AccountConfirmation}/>
           </Switch>
-          <Navbar />
+          
           <div className="account-container">
             <h1 className="title account-title">Create Account</h1>
           </div>

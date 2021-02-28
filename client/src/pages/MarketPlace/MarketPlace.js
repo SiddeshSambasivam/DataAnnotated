@@ -19,7 +19,7 @@ const MarketPlace = () => {
             <Navbar />
             <div className="container">
                 <h1 className="title">Market Place</h1>
-                <section className="basic-grid">
+                <section className="card-list">
                     <div className="card">Task 1</div>
                     <div className="card">Task 2</div>
                     <div className="card">Task 3</div>
