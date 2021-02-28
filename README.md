@@ -6,7 +6,7 @@
 </h1>
 <p align="center">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="GitHub license"/>  
-    <img src='https://aleen42.github.io/badges/src/react.svg' alt='Documentation Status' />
+    <img src='https://aleen42.github.io/badges/src/react.svg' alt='React' />
     <img alt="GitHub package.json dependency version (prod)" src="https://img.shields.io/github/package-json/dependency-version/SiddeshSambasivam/DataAnnotated/express"/>
     <img alt="GitHub package.json dependency version (prod)" src="https://img.shields.io/github/package-json/dependency-version/SiddeshSambasivam/DataAnnotated/mongoose"/>
     <img alt="GitHub package.json dependency version (prod)" src="https://aleen42.github.io/badges/src/node.svg"/>
