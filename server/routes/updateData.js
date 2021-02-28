@@ -4,6 +4,8 @@ const UserData = require("../model/UserData");
 const cors = require("cors");
 
 const dotenv = require("dotenv");
+const JSON5 = require('json5')
+
 
 dotenv.config();
 
@@ -17,19 +19,18 @@ mongoose.connect(
 
 router.post("/", cors(), (req, res) => {
 
-    console.log(req.query)
-    const user = JSON.parse(req.query.user)
+    let user_data = JSON5.parse(req.header("data"))
     
-    res.send("success")
-    // UserData.findOneAndUpdate(
-    //     {"user_id":user.user_id}, 
-    //     user, 
-    //     {upsert:true}, 
-    //     function(err, doc) {
-    //         if (err) return res.send(500, {error: err});
-    //         return res.send('Succesfully saved.');
-    //     }
-    // );
+    UserData.findOneAndUpdate(
+        {"user_id":user_data.user.user_id}, 
+        user_data.user, 
+        {upsert:true}, 
+        function(err, doc) {
+            if (err) return res.send(500, {error: err});
+            return res.send({"State":'Succesfully saved.'});
+        }
+    );
+    
   });
   
   module.exports = router;

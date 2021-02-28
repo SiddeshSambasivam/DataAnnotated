@@ -38,6 +38,10 @@ const Landing = () => {
         console.log("Logged In")
         return <Redirect to={{pathname:"/home"}} />
     }
+    else{
+        console.log("Logged In")
+        return <Redirect to={{pathname:"/login"}} />        
+    }
 
     return(
         <>  

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Redirect} from 'react-router-dom';
 import JSON from 'json5';
 
 import "./navbar.css";
@@ -6,15 +7,24 @@ import "./navbar.css";
 const Navbar = () => {
 
     let cachedData = JSON.parse(localStorage.getItem('cachedData'));
-    let annotationTasks = cachedData.user_data.annotation_data;
-
     const [expand, setExpand] = useState(false);
+
+    if(cachedData.loggedIn == false){
+      return <Redirect to="/login" />
+    }
+
+    let annotationTasks = cachedData.user_data.annotation_data;
 
     const HandleLogout = () => {
         let cachedData = JSON.parse(localStorage.getItem('cachedData'));
         cachedData.loggedIn = false;
-        localStorage.setItem("cachedData", JSON.stringify(cachedData));
-        console.log("clicked", cachedData)
+        
+        localStorage.setItem("cachedData",JSON.stringify({
+          JWT:null,
+          loggedIn:false,
+          user_data:{},
+          current_task:null
+      }))
     }
 
     const handleClick = (e) => {
@@ -25,7 +35,7 @@ const Navbar = () => {
     const TaskList = annotationTasks.map((task) => {
         return (
             <li className="nav-item">
-            <a href="/task/" id={JSON.stringify(task)} key={task.task_id} onClick={handleClick} className="nav-link">
+            <a href={"/task/"+task.task_id} id={task.task_id} key={task.task_id} onClick={handleClick} className="nav-link">
               <span className="expand-task">{task.task_name}</span>
             </a>
           </li>

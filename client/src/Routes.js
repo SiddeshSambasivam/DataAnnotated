@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import Landing from './pages/Landing';
 import User from './pages/User';
 import Task from './pages/Task';
+import CreateTask from './pages/CreateTask';
 import JSON from 'json5';
 
 import { homePath, marketplacePath, profilePath, 
@@ -25,7 +26,7 @@ const Routes = () => {
           <Route path={marketplacePath} component={MarketPlace} />
           <Route path={profilePath} component={User} />
           <Route path={taskPath} component={Task} />
-          <Route path={createTaskPath} component={User} />
+          <Route path={createTaskPath} component={CreateTask} />
         </Switch>
       </BrowserRouter>
     </>
