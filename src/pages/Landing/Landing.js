@@ -9,7 +9,7 @@ const Landing = () => {
     // const [loggedIn, setLoginStatus] = useState(JSON.parse(localStorage.getItem("cachedData")).loggedIn);
     // let cachedData = ;?
     const cachedData = {
-        JWT:JWT,
+        JWT:null,
         loggedIn:false,
         user_data:{},
         current_task:null
