@@ -11,10 +11,18 @@
 }
 
 body {
-  color:  #eeeeee;
-  background-color: var(--bg-primary);
+  color: #eeeeee;
+  /* background-image: url(../src/assets/bg.jpg); */
+  background:#01071d;
+  /* background: rgb(10,26,51); */
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   padding: 0;
+  
+  font-family: 'Noto Sans', sans-serif;
+  
+  
 }
 
 body::-webkit-scrollbar {
@@ -31,8 +39,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container{
-  margin-left: 18rem;
-  margin-top: 7vh;
+  margin-left: 4rem;
   padding: 1rem;
   /* display: flex; */
 }

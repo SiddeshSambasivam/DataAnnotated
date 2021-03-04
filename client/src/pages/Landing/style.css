@@ -1,0 +1,106 @@
+/* ==========================================================================
+   Hero Area
+   ========================================================================== */
+   .hero-area {
+    position: relative; }
+    .hero-area .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+      text-decoration: none;
+      /*background: rgb(0, 0, 20);*/
+      background:#01071d;
+      /*background-image: url(../../assets/bg.jpg);*/
+      background-repeat: no-repeat;
+      background-size: cover;
+     
+      z-index: -12; }
+      
+    .hero-area .contents {
+      padding: 170px 0;
+      padding-left: 0px; 
+      margin-top: 0px;
+      /* margin-left: 400px; */
+      
+    }
+      .hero-area .contents h2 {
+        color: #fff;
+        font-size: 38px;
+        font-weight: 600;
+        line-height: 60px;
+        align-self: center;
+        margin-bottom: 20px;
+        margin-top: 0px;
+        margin-left: 16px;
+       }
+        
+      .hero-area .contents p {
+        color: #fff;
+        font-size: 18px;
+        line-height: 26px; 
+        margin-left: 16px;
+      }
+      .hero-area .contents .btn {
+        margin-top: 20px;
+        margin-right: 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 180px;
+        height: 50px;
+        padding: 15px 15px; 
+        margin-left: 16px;
+      }
+      .hero-area .contents .btn-border {
+        border: 1px solid #fff;
+        color: #01071d;
+        border-radius: 10px;
+        -webkit-box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 6px rgba(63, 63, 82, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        width: 180px;
+        height: 50px;
+        padding: 15px 15px;
+        background:#eeeeee; }
+        .hero-area .contents .btn-border:hover {
+          background: #01071d;
+          color:#eeeeee;
+          box-shadow: 0 1px 1px cornsilk;
+         
+        }
+
+        .hero-area .contents .btn-border-filled {
+          border-radius: 10px;
+          color: #01071d;
+          background:#eeeeee; 
+          width: 180px;
+          height: 50px;
+            box-shadow: 0 0 1px 1px azure;
+            
+        }
+      .hero-area .contents .btn-border-filled:hover {
+        background:#01071d;
+        color: #eeeeee;
+        
+        
+      }
+     
+       /* .hero-area .intro-img img{
+        display: inline-block;
+        height: 400px;
+        max-width: 100%;
+        
+      }  */
+      .hero-area .intro-img {
+        padding: 90px 0 0px; }
+        .hero-area .intro-img img {
+          margin-left: 200px;
+          margin-bottom: 0px;
+          display: inline-block;
+          height: 450px;
+          object-fit: cover;
+          max-width: 100%;
+
+         }
+     
+     /*---------------------------*/
