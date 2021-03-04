@@ -1,0 +1,92 @@
+
+.account-grid-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 3rem;
+    /*height: 50px;*/
+}
+
+.account-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /*gap: 10px;*/
+    row-gap: none;
+    column-gap: 5rem;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+
+
+input[type="password"],
+input[type="text"],
+input[type="email"]{
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    width: 15rem;
+    height: 1.5rem;
+    background-color: #4a5568;
+    border: 2px solid #4a5568;
+    color: white;
+    font-weight: normal;
+    margin: none;
+    display: inline-block;
+    line-height: normal;
+}
+
+.password-button{
+    margin-left: 0.5rem;
+    width: max-content;
+}
+
+.account-title{
+    position: relative;
+    display: block;
+    text-align: center;
+    /*
+    text-align: left;
+    margin-left: 23.5rem;
+    */
+}
+
+
+.account-sub-title{
+  font-size: 1.5rem;
+  margin-top: 7vh;
+}
+
+.account-confirm-button{
+    margin-left: -0.1rem;
+}
+
+#account-confirm-title{
+    text-align: center;
+    margin-top: 10rem;
+}
+
+
+#account-confirm-button{
+    margin: 0 auto;
+    display: block;
+}
+
+.disabled-button{
+    cursor: not-allowed;
+}
+
+
+.account-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.error{
+    color: white;
+    font-weight: 100;
+    display: block;
+    margin-top: 1rem;
+}
+

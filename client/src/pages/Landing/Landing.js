@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 //import styles from "./style.css";
 import './style.css';
@@ -60,6 +61,60 @@ function Landing() {
 
         </>
     );
+=======
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import JSON from 'json5';
+
+import './Landing.module.css';
+
+const Landing = () => {
+
+    const [loggedIn, setLoginStatus] = useState(JSON.parse(localStorage.getItem("cachedData")).loggedIn);
+    // let cachedData = ;?
+
+    const handleLogin = () => {
+        const cachedData = {
+            loggedIn: true,
+            user_data:{
+                user_id:"user123",
+                user_name:"Test user",
+                email:"testmail@gmail.com",
+                annotation_data: [
+                  {
+                    task_id:"t123",
+                    task_name:"POS Tagging",
+                    task_type:"TextEntityAnnotation",
+                    raw_data: ['On Monday night , Mr. Fallon will have a co-host for the first time : The rapper Cardi B , who just released her first album, " Invasion of Privacy . "', 'My name is siddesh and its been a great way to talk and quick brown fox jumps over the lazy dog'],
+                    annotated_data:[],
+                    labels:["PERSON", "ORGANIZATION", "LOCATION"],
+                  }
+                ],
+            },
+            current_task:null
+        }
+
+        localStorage.setItem("cachedData", JSON.stringify(cachedData))
+        setLoginStatus(true)
+    }
+
+    if(loggedIn == true){
+        console.log("Logged In")
+        return <Redirect to={{pathname:"/home"}} />
+    }
+    else{
+        console.log("Logged In")
+        return <Redirect to={{pathname:"/login"}} />        
+    }
+
+    return(
+        <>  
+            Landing Page
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <a href="/login">Login</a>
+        </>
+    )
+>>>>>>> main
 }
 
 export default Landing;
