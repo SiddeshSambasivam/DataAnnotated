@@ -1,8 +1,8 @@
 :root{
-    --field-bkgnd: #4a5568;
-    --field-text: #fff;
+    --field-bkgnd: #05031F;
+    --field-text: #eeeeee;
     --field-border: #0B0B0D;
-    --button-bkgnd: #4a5568;
+    --button-bkgnd: #05031F;
 }
 
 input[type="text"]{

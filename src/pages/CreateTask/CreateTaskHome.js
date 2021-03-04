@@ -84,15 +84,35 @@ const CreateTaskHome = () => {
                 <section className="card-list">
                     <article className="card">
                         <header className="card-header">
-                            <p>Text Data</p>
-                            <h2>Machine Translation</h2>
+                            <p>Image Data</p>
+
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="images" class="svg-inline--fa fa-images fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="mini-logo">
+                                <path fill="currentColor" d="M480 416v16c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V176c0-26.51 21.49-48 48-48h16v208c0 44.112 35.888 80 80 80h336zm96-80V80c0-26.51-21.49-48-48-48H144c-26.51 0-48 21.49-48 48v256c0 26.51 21.49 48 48 48h384c26.51 0 48-21.49 48-48zM256 128c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-96 144l55.515-55.515c4.686-4.686 12.284-4.686 16.971 0L272 256l135.515-135.515c4.686-4.686 12.284-4.686 16.971 0L512 208v112H160v-48z"></path>
+                            </svg>                            
+                            <h2>Object detection</h2>
 
                             <p className="info">
-                                Task of translating text from one language to ine or more languages.
+                                Task of detecting instances of semantic objects of a certain class in digital images and videos.
                             </p>
                             <p style={{color:"#ccccc", marginTop:"4rem"}}>Currently Unavailable. In development</p>
                         </header>
                     </article>                                                                        
+                    <article className="card">
+                        <header className="card-header">
+                            <p>Image Data</p>
+
+
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="photo-video" class="svg-inline--fa fa-photo-video fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" className="mini-logo">
+                                <path fill="currentColor" d="M608 0H160a32 32 0 0 0-32 32v96h160V64h192v320h128a32 32 0 0 0 32-32V32a32 32 0 0 0-32-32zM232 103a9 9 0 0 1-9 9h-30a9 9 0 0 1-9-9V73a9 9 0 0 1 9-9h30a9 9 0 0 1 9 9zm352 208a9 9 0 0 1-9 9h-30a9 9 0 0 1-9-9v-30a9 9 0 0 1 9-9h30a9 9 0 0 1 9 9zm0-104a9 9 0 0 1-9 9h-30a9 9 0 0 1-9-9v-30a9 9 0 0 1 9-9h30a9 9 0 0 1 9 9zm0-104a9 9 0 0 1-9 9h-30a9 9 0 0 1-9-9V73a9 9 0 0 1 9-9h30a9 9 0 0 1 9 9zm-168 57H32a32 32 0 0 0-32 32v288a32 32 0 0 0 32 32h384a32 32 0 0 0 32-32V192a32 32 0 0 0-32-32zM96 224a32 32 0 1 1-32 32 32 32 0 0 1 32-32zm288 224H64v-32l64-64 32 32 128-128 96 96z"></path>
+                            </svg>
+                            <h2>Image Segmentation</h2>
+
+                            <p className="info">
+                                Task of partitioning a digital image into multiple segments (sets of pixels, also known as image objects).
+                            </p>
+                            <p style={{color:"#ccccc", marginTop:"1.5rem"}}>Currently Unavailable. In development</p>
+                        </header>
+                    </article>                       
                 </section>
                 
             </div>
