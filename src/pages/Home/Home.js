@@ -32,8 +32,6 @@ const Home = () => {
         }
     }
 
-    console.log(cachedData)
-
     const tasks = userdata.annotation_data.map((task) => {
         
         return(
@@ -66,7 +64,7 @@ const Home = () => {
     return (
         <>
             <Navbar />
-            <div className="container" style={{transition:"0.5ms"}}>
+            <div className="container">
                 <h2 className="title">Annotation Tasks</h2>
 
                 <section className="card-list">

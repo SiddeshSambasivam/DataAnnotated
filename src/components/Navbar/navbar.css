@@ -30,39 +30,12 @@
     /* margin-right: 63vw; */
 }
 
-@media only screen and (max-width: 768px) {  
-  .navbar-nav-top h3{
-    width: 40vw;
-    /* margin-right: 63vw; */
-} 
-} 
-
 .nav-link-top svg{
   width: 30px;
   height: 400px;
   margin-right: 2vw;
 }
 
-.logout{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 110px;
-  height: 50px;
-  border: 0.01px solid ;
-  color: #eeeeee;
-  text-align: center;
-  font-family: 'Lato', sans-serif;
-  text-decoration: none;
-  transition: all 0.2s;
-  border-radius: 5px;
-}
-
-.logout:hover{
-  color:#ff8a00;
-  border: 0.01px solid ;
-  transition: all 0.2s;
-}
 
 .nav-link-top {
     display: flex;
@@ -73,6 +46,9 @@
     /* filter: grayscale(100%) opacity(0.7); */
     /* transition: var(--transition-speed); */
 }
+
+
+/* All properties from here belong to the sidebar */
 
 .navbar {
     width: 16rem;
@@ -177,6 +153,7 @@
   
     .navbar-nav {
       flex-direction: row;
+      overflow-x: scroll;
     }
   
     .nav-link {
@@ -185,6 +162,10 @@
   
     main {
       margin: 0;
+    }
+
+    .link-text{
+      display: none;
     }
   }
   
@@ -211,39 +192,63 @@
     }
   }
   
-  .dark {
-    --text-primary: #b6b6b6;
-    --text-secondary: #ececec;
-    --bg-primary: #23232e;
-    --bg-secondary: #141418;
+  .header-text{
+    background: linear-gradient(90deg,#ff8a00,#F25F29);
+    text-shadow: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
   }
-  
-  .light {
-    --text-primary: #1f1f1f;
-    --text-secondary: #000000;
-    --bg-primary: #ffffff;
-    --bg-secondary: #e4e4e4;
+
+
+  /* New topbar props */
+
+  .topbar{
+
+    margin: 0;
+    padding: 0;
+    
+    list-style: none;
+    
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 5em;
+
+    background-color: var(--bg-secondary);
+    box-shadow: 0 8px 6px -6px var(--bg-secondary);
+    z-index: 1;
+    
   }
-  
-  .solar {
-    --text-primary: #576e75;
-    --text-secondary: #35535c;
-    --bg-primary: #fdf6e3;
-    --bg-secondary: #f5e5b8;
+
+  .topbar li{
+    display: inline-block;
+    margin: 0 2em 0 10em;
   }
-  
-  .theme-icon {
-    display: none;
+
+
+  .topbar svg{
+    width: 2em;
+    align-items: center;
   }
-  
-  .dark #darkIcon {
-    display: block;
+
+  .topbar li h2{
+    font-size: 25px;
+    top: 0;
+    left: 0%;
+    right: 0;
   }
-  
-  .light #lightIcon {
-    display: block;
+
+  .logout{
+    text-decoration: none;
+    border: 1px solid ;
+    width: 100%;
+    min-height: 100%;
   }
-  
-  .solar #solarIcon {
-    display: block;
+  .logout:hover{
+    color:#ff8a00;
+    border: 0.01px solid ;
+    transition: all 0.2s;
   }
