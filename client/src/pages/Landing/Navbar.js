@@ -25,9 +25,9 @@ function Navbar() {
                 </div>
 
                 <div class="nav-links">
-                    <a href="#" target="_blank">Home</a>
-                    <a href="#" target="_blank">Tutorial</a>
-                    <a href="#" target="_blank">Features</a>
+                    <a href="#">Home</a>
+                    <a href="#">Tutorial</a>
+                    <a href="features">Features</a>
                     <a href="#" target="_blank">Login</a>
 
                 </div>

@@ -42,6 +42,18 @@
         line-height: 26px; 
         margin-left: 16px;
       }
+      .hero .contents h4 {
+        
+          display: block;
+          margin-left: 20px;
+          /*margin-block-start: 1.33em;
+          margin-block-end: 1.33em;
+          margin-inline-start: 0px;
+          margin-inline-end: 0px;
+          font-weight: bold;*/
+      
+      }
+
       .hero-area .contents .btn {
         margin-top: 20px;
         margin-right: 20px;

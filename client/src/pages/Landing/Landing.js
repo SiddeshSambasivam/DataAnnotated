@@ -5,7 +5,8 @@ import './Navbar.js';
 import Introgif from '../../assets/graphotate-intro.gif';
 import Navbar from './Navbar.js';
 import Features from './Features/features.js';
-
+import Tutorial from './Tutorial/tutorial.js';
+import './typing.js';
 
 function Landing() {
     return (
@@ -22,12 +23,18 @@ function Landing() {
         <div class="row space-100">
           <div class="col-lg-6 col-md-12 col-xs-12">
             <div class="contents">
-              <h2 class="head-title">Data Annotated</h2>
-              <p>Your Annotation Mate!</p>
-              <h4><span
+            <h2>Data <span
                 class="txt-rotate"
                 data-period="2000"
-                data-rotate='[ "Your Data", "Annotated", "Right here!" ]'></span></h4>
+                data-rotate='["Annotated!" ]'></span></h2>
+                
+
+              {/* <h2 class="head-title">Data Annotated</h2> */}
+              <p>Your Annotation Mate!</p>
+              
+              
+                <br></br>
+
               <div class="header-button">
                 <a href="#" class="btn btn-border-filled">Get Started</a>
                 <a href="#" class="btn btn-border page-scroll">Register</a>
@@ -47,9 +54,13 @@ function Landing() {
    
     </header>
 <br></br>
-    <div class="features">
+    <div class="features" id="features">
       
       <Features></Features>
+    </div>
+
+    <div class="tutorial">
+      <Tutorial></Tutorial>
     </div>
    
     <div>
