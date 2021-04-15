@@ -1,0 +1,17 @@
+{
+  "unversionedId": "thank-you",
+  "id": "thank-you",
+  "isDocsHomePage": false,
+  "title": "Thank you!",
+  "description": "Congratulations on making it this far!",
+  "source": "@site/docs/thank-you.md",
+  "slug": "/thank-you",
+  "permalink": "/docs/thank-you",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/thank-you.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Markdown Features",
+    "permalink": "/docs/markdown-features"
+  }
+}
