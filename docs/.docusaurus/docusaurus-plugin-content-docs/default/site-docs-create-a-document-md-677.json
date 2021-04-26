@@ -1,0 +1,21 @@
+{
+  "unversionedId": "create-a-document",
+  "id": "create-a-document",
+  "isDocsHomePage": false,
+  "title": "Create a Document",
+  "description": "Documents are pages with a sidebar, a previous/next navigation and many other useful features.",
+  "source": "@site/docs/create-a-document.md",
+  "slug": "/create-a-document",
+  "permalink": "/docs/create-a-document",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/create-a-document.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Create a Page",
+    "permalink": "/docs/create-a-page"
+  },
+  "next": {
+    "title": "Create a Blog Post",
+    "permalink": "/docs/create-a-blog-post"
+  }
+}

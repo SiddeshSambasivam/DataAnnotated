@@ -1,0 +1,368 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "versionLabel": "Next",
+          "versionPath": "/docs",
+          "versionEditUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs",
+          "versionEditUrlLocalized": "https://github.com/facebook/docusaurus/edit/master/website/i18n/en/docusaurus-plugin-content-docs/current",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "C:\\Users\\Shivam\\Documents\\MLH\\DADocumented\\DADocumented\\sidebars.js",
+          "contentPath": "C:\\Users\\Shivam\\Documents\\MLH\\DADocumented\\DADocumented\\docs",
+          "contentPathLocalized": "C:\\Users\\Shivam\\Documents\\MLH\\DADocumented\\DADocumented\\i18n\\en\\docusaurus-plugin-content-docs\\current",
+          "mainDocId": "get-started",
+          "sidebars": {
+            "docs": [
+              {
+                "collapsed": true,
+                "type": "category",
+                "label": "Docusaurus Tutorial",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "getting-started"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "create-a-page"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "create-a-document"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "create-a-blog-post"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "markdown-features"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "thank-you"
+                  }
+                ]
+              }
+            ]
+          },
+          "permalinkToSidebar": {
+            "/docs/create-a-blog-post": "docs",
+            "/docs/create-a-document": "docs",
+            "/docs/create-a-page": "docs",
+            "/docs/getting-started": "docs",
+            "/docs/markdown-features": "docs",
+            "/docs/thank-you": "docs"
+          },
+          "docs": [
+            {
+              "unversionedId": "create-a-blog-post",
+              "id": "create-a-blog-post",
+              "isDocsHomePage": false,
+              "title": "Create a Blog Post",
+              "description": "This page will help you on how to create blog posts in Docusaurus.",
+              "source": "@site/docs/create-a-blog-post.md",
+              "slug": "/create-a-blog-post",
+              "permalink": "/docs/create-a-blog-post",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/create-a-blog-post.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Create a Document",
+                "permalink": "/docs/create-a-document"
+              },
+              "next": {
+                "title": "Markdown Features",
+                "permalink": "/docs/markdown-features"
+              }
+            },
+            {
+              "unversionedId": "create-a-document",
+              "id": "create-a-document",
+              "isDocsHomePage": false,
+              "title": "Create a Document",
+              "description": "Documents are pages with a sidebar, a previous/next navigation and many other useful features.",
+              "source": "@site/docs/create-a-document.md",
+              "slug": "/create-a-document",
+              "permalink": "/docs/create-a-document",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/create-a-document.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Create a Page",
+                "permalink": "/docs/create-a-page"
+              },
+              "next": {
+                "title": "Create a Blog Post",
+                "permalink": "/docs/create-a-blog-post"
+              }
+            },
+            {
+              "unversionedId": "create-a-page",
+              "id": "create-a-page",
+              "isDocsHomePage": false,
+              "title": "Create a Page",
+              "description": "Any React or Markdown file created under src/pages directory is converted into a website page:",
+              "source": "@site/docs/create-a-page.md",
+              "slug": "/create-a-page",
+              "permalink": "/docs/create-a-page",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/create-a-page.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "getting-started",
+                "permalink": "/docs/getting-started"
+              },
+              "next": {
+                "title": "Create a Document",
+                "permalink": "/docs/create-a-document"
+              }
+            },
+            {
+              "unversionedId": "get-started",
+              "id": "get-started",
+              "isDocsHomePage": false,
+              "title": "Data Annotated",
+              "description": "Installation",
+              "source": "@site/docs/get-started.md",
+              "slug": "/",
+              "permalink": "/docs/",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/get-started.md",
+              "version": "current"
+            },
+            {
+              "unversionedId": "getting-started",
+              "id": "getting-started",
+              "isDocsHomePage": false,
+              "title": "getting-started",
+              "description": "Step 1: Generate a new Docusaurus site",
+              "source": "@site/docs/getting-started.md",
+              "slug": "/getting-started",
+              "permalink": "/docs/getting-started",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/getting-started.md",
+              "version": "current",
+              "sidebar": "docs",
+              "next": {
+                "title": "Create a Page",
+                "permalink": "/docs/create-a-page"
+              }
+            },
+            {
+              "unversionedId": "markdown-features",
+              "id": "markdown-features",
+              "isDocsHomePage": false,
+              "title": "Markdown Features",
+              "description": "Docusaurus supports the Markdown syntax and has some additional features.",
+              "source": "@site/docs/markdown-features.mdx",
+              "slug": "/markdown-features",
+              "permalink": "/docs/markdown-features",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/markdown-features.mdx",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Create a Blog Post",
+                "permalink": "/docs/create-a-blog-post"
+              },
+              "next": {
+                "title": "Thank you!",
+                "permalink": "/docs/thank-you"
+              }
+            },
+            {
+              "unversionedId": "thank-you",
+              "id": "thank-you",
+              "isDocsHomePage": false,
+              "title": "Thank you!",
+              "description": "Congratulations on making it this far!",
+              "source": "@site/docs/thank-you.md",
+              "slug": "/thank-you",
+              "permalink": "/docs/thank-you",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/thank-you.md",
+              "version": "current",
+              "sidebar": "docs",
+              "previous": {
+                "title": "Markdown Features",
+                "permalink": "/docs/markdown-features"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-blog": {
+    "default": {
+      "blogPosts": [
+        {
+          "id": "welcome",
+          "metadata": {
+            "permalink": "/blog/welcome",
+            "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/blog/blog/2019-05-30-welcome.md",
+            "source": "@site/blog/2019-05-30-welcome.md",
+            "description": "Blog features are powered by the blog plugin. Simply add files to the blog directory. It supports tags as well!",
+            "date": "2019-05-30T00:00:00.000Z",
+            "formattedDate": "May 30, 2019",
+            "tags": [
+              {
+                "label": "facebook",
+                "permalink": "/blog/tags/facebook"
+              },
+              {
+                "label": "hello",
+                "permalink": "/blog/tags/hello"
+              },
+              {
+                "label": "docusaurus",
+                "permalink": "/blog/tags/docusaurus"
+              }
+            ],
+            "title": "Welcome",
+            "readingTime": 0.175,
+            "truncated": false,
+            "nextItem": {
+              "title": "Hello",
+              "permalink": "/blog/hello-world"
+            }
+          }
+        },
+        {
+          "id": "hello-world",
+          "metadata": {
+            "permalink": "/blog/hello-world",
+            "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/blog/blog/2019-05-29-hello-world.md",
+            "source": "@site/blog/2019-05-29-hello-world.md",
+            "description": "Welcome to this blog. This blog is created with Docusaurus 2 alpha.",
+            "date": "2019-05-29T00:00:00.000Z",
+            "formattedDate": "May 29, 2019",
+            "tags": [
+              {
+                "label": "hello",
+                "permalink": "/blog/tags/hello"
+              },
+              {
+                "label": "docusaurus",
+                "permalink": "/blog/tags/docusaurus"
+              }
+            ],
+            "title": "Hello",
+            "readingTime": 0.12,
+            "truncated": true,
+            "prevItem": {
+              "title": "Welcome",
+              "permalink": "/blog/welcome"
+            },
+            "nextItem": {
+              "title": "Hola",
+              "permalink": "/blog/hola"
+            }
+          }
+        },
+        {
+          "id": "hola",
+          "metadata": {
+            "permalink": "/blog/hola",
+            "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/blog/blog/2019-05-28-hola.md",
+            "source": "@site/blog/2019-05-28-hola.md",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet",
+            "date": "2019-05-28T00:00:00.000Z",
+            "formattedDate": "May 28, 2019",
+            "tags": [
+              {
+                "label": "hola",
+                "permalink": "/blog/tags/hola"
+              },
+              {
+                "label": "docusaurus",
+                "permalink": "/blog/tags/docusaurus"
+              }
+            ],
+            "title": "Hola",
+            "readingTime": 0.12,
+            "truncated": false,
+            "prevItem": {
+              "title": "Hello",
+              "permalink": "/blog/hello-world"
+            }
+          }
+        }
+      ],
+      "blogListPaginated": [
+        {
+          "metadata": {
+            "permalink": "/blog",
+            "page": 1,
+            "postsPerPage": 10,
+            "totalPages": 1,
+            "totalCount": 3,
+            "previousPage": null,
+            "nextPage": null,
+            "blogDescription": "Blog",
+            "blogTitle": "Blog"
+          },
+          "items": [
+            "welcome",
+            "hello-world",
+            "hola"
+          ]
+        }
+      ],
+      "blogTags": {
+        "facebook": {
+          "name": "facebook",
+          "items": [
+            "welcome"
+          ],
+          "permalink": "/blog/tags/facebook"
+        },
+        "hello": {
+          "name": "hello",
+          "items": [
+            "welcome",
+            "hello-world"
+          ],
+          "permalink": "/blog/tags/hello"
+        },
+        "docusaurus": {
+          "name": "docusaurus",
+          "items": [
+            "welcome",
+            "hello-world",
+            "hola"
+          ],
+          "permalink": "/blog/tags/docusaurus"
+        },
+        "hola": {
+          "name": "hola",
+          "items": [
+            "hola"
+          ],
+          "permalink": "/blog/tags/hola"
+        }
+      },
+      "blogTagsListPath": "/blog/tags"
+    }
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": [
+      {
+        "type": "jsx",
+        "permalink": "/",
+        "source": "@site/src/pages/index.js"
+      },
+      {
+        "type": "mdx",
+        "permalink": "/markdown-page",
+        "source": "@site/src/pages/markdown-page.md"
+      }
+    ]
+  },
+  "docusaurus-plugin-debug": {
+    "default": null
+  },
+  "docusaurus-theme-classic": {
+    "default": null
+  }
+}

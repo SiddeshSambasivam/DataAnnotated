@@ -1,0 +1,12 @@
+{
+  "unversionedId": "get-started",
+  "id": "get-started",
+  "isDocsHomePage": false,
+  "title": "Data Annotated",
+  "description": "Installation",
+  "source": "@site/docs/get-started.md",
+  "slug": "/",
+  "permalink": "/docs/",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/get-started.md",
+  "version": "current"
+}
